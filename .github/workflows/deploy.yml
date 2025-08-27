@@ -25,8 +25,8 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean install (workaround npm optional deps bug)
+        run: rm -rf node_modules package-lock.json && npm i
 
       - name: Build VitePress site
         run: npm run docs:build
