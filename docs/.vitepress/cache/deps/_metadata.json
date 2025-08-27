@@ -1,0 +1,73 @@
+{
+  "hash": "d009b5f4",
+  "configHash": "1570d4ba",
+  "lockfileHash": "ddffab06",
+  "browserHash": "a5c98696",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "36cdd68b",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "119b8501",
+      "needsInterop": false
+    },
+    "vitepress > @vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/index.mjs",
+      "file": "vitepress___@vueuse_core.js",
+      "fileHash": "3215795d",
+      "needsInterop": false
+    },
+    "markmap-lib": {
+      "src": "../../../../node_modules/markmap-lib/dist/browser/index.mjs",
+      "file": "markmap-lib.js",
+      "fileHash": "884f75e4",
+      "needsInterop": false
+    },
+    "markmap-view": {
+      "src": "../../../../node_modules/markmap-view/dist/index.js",
+      "file": "markmap-view.js",
+      "fileHash": "323b5f29",
+      "needsInterop": false
+    },
+    "markmap-lib/no-plugins": {
+      "src": "../../../../node_modules/markmap-lib/dist/index.no-plugins.mjs",
+      "file": "markmap-lib_no-plugins.js",
+      "fileHash": "ac9f552c",
+      "needsInterop": false
+    },
+    "markmap-lib/plugins": {
+      "src": "../../../../node_modules/markmap-lib/dist/plugins.mjs",
+      "file": "markmap-lib_plugins.js",
+      "fileHash": "7ad881ba",
+      "needsInterop": false
+    },
+    "roslib": {
+      "src": "../../../../node_modules/roslib/src/RosLib.js",
+      "file": "roslib.js",
+      "fileHash": "940f1e6b",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-HVR2FF6M": {
+      "file": "chunk-HVR2FF6M.js"
+    },
+    "chunk-SAI3RWE7": {
+      "file": "chunk-SAI3RWE7.js"
+    },
+    "chunk-ZR3HKCUB": {
+      "file": "chunk-ZR3HKCUB.js"
+    },
+    "chunk-2TW2Q2U4": {
+      "file": "chunk-2TW2Q2U4.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}
