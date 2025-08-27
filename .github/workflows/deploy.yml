@@ -31,13 +31,11 @@ jobs:
       - name: Build VitePress site
         run: npm run docs:build
 
-      - name: Deploy to external gh-pages
+      - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.TARGET_REPO_TOKEN }}
-          external_repository: ZJ-Humanoid/navi_sdk_ros
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/.vitepress/dist
-          publish_branch: gh-pages
           force_orphan: true
 
 
