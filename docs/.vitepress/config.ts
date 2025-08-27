@@ -8,7 +8,7 @@ const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
 const isUserOrOrgSite = repositoryName.endsWith('.github.io');
 
 export default defineConfig({
-  base: '/navi_sdk_ros/',
+  base: '/navi_sdk_documents/',
 });
 
 
