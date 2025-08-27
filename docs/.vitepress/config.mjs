@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Navi机器人SDK开发指南',
   description: '这是浙江人形机器人Navi系列的SDK和编程指引文档站点。',
-  base: '/navi_sdk_ros/',
+  base: '/navi_sdk_documents/',
   
   themeConfig: {
     sidebar: [
