@@ -1,0 +1,1476 @@
+import{C as s,c as t,o,j as n,G as p,a,k as c}from"./chunks/framework.Cd-3tpCq.js";const m=`# /zj_humanoid\r
+## /robot\r
+### /robot_state\r
+- decription\r
+  - 机器人状态机值实时发布，只有当机器人进入RUN状态，机器人才能进行动作的执行\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [RobotState](./zj_humanoid_types.md#RobotState)\r
+- hz\r
+  - 1\r
+- demos\r
+  - robot_state_get_set.py\r
+    - testWord\r
+- agent\r
+  - 机器人当前处于什么状态\r
+    - 回复应包含：RUN状态\r
+### /set_robot_state\r
+#### /run\r
+- decription\r
+  - 如果机器人处于非RUN状态，尝试将机器人状态值设置为RUN，但如果有异常的存在，也可能会失败\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+- demos\r
+  - robot_state_11\r
+    - test111\r
+- agent\r
+  - 将机器人状态设置为RUN\r
+    - 持续检测robot_state话题，经过最长60秒钟的等待，状态应切换为：RUN\r
+#### /stop\r
+- decription\r
+  - 机器人软急停状态，状态机值将切换为ERR，在机器发生异常时使用\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+- demos\r
+  - robot_state_get_set.py\r
+    - test222\r
+- agent\r
+  - 将机器人状态设置为stop\r
+    - 1秒后，检测robot_state话题，状态应切换为：ERR\r
+#### /OFF\r
+- decription\r
+  - 机器人关机，大小脑将同步关机\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+- demos\r
+  - robot_state_get_set.py\r
+- agent\r
+  - 将机器人关机\r
+    - 3秒后，大小脑关机，之后后没法检测到机器人建立ros链接\r
+#### /restart\r
+- decription\r
+  - 机器人先进stop软急停状态，再自动变为RUN启动运行，在某些故障状态可以执行，但如果有异常的存在，也可能会失败\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+- demos\r
+  - robot_state_get_set.py\r
+- agent\r
+  - 将机器人状态机重启\r
+    - 持续检测robot_state话题，经过最长60秒钟的等待，状态应切换为：RUN\r
+### /basic_info\r
+- description\r
+  - 机器人基础信息，机器人的型号，硬件版本号，软件版本号，IP地址等\r
+- type\r
+  - Service\r
+- srv\r
+  - [BasicInfo](./zj_humanoid_types.md#BasicInfo)\r
+- demos\r
+  - get_robot_basic_info.py\r
+- agent\r
+  - 描述下机器人的基础信息\r
+    - 回复应包含机器人的型号，硬件版本号，软件版本号，IP地址\r
+### /battery_info\r
+- description\r
+  - 机器人主电池和BMS相关信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [BatteryInfo](./zj_humanoid_types.md#BatteryInfo)\r
+- hz\r
+  - 1\r
+- agent\r
+  - 机器人当前电量还剩多少\r
+    - 回复值应为1~100%\r
+### /orin_states\r
+#### /errors\r
+- description\r
+  - 机器人大脑orin错误汇总，包括over_temp,over_cpu,over_mem,over_disk等\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+- hz\r
+  - 1\r
+- agent\r
+  - 机器人大脑模块是否有错误发生\r
+    - 回复应包含：没有\r
+#### /resource\r
+- description\r
+  - 机器人大脑orin资源统计，包括cpu,temperature,memory,disk等信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+- hz\r
+  - 1\r
+- agent\r
+  - 机器人大脑的资源状态\r
+    - 回复应包含：大脑的cpu,温度，内存，硬盘的用量\r
+#### /wifi_list\r
+- description\r
+  - 获取机器人大脑检测到的wifi热点名称\r
+- type\r
+  - Service\r
+- srv\r
+  - [WifiList](./zj_humanoid_types.md#WifiList)\r
+- demos\r
+  - connect_wifi_orin.py\r
+- agent\r
+  - 当前机器人大脑检测到多少个wifi信号\r
+    - 回复应大于1\r
+#### /connect_wifi\r
+- description\r
+  - 尝试让机器人大脑orin去连接wifi热点\r
+- type\r
+  - Service\r
+- srv\r
+  - [ConnectWifi](./zj_humanoid_types.md#ConnectWifi)\r
+- demos\r
+  - connect_wifi_orin.py\r
+### /pico_states\r
+#### /errors\r
+- description\r
+  - 小脑pico错误汇总，包含over_temp,over_cpu,over_mem,over_disk等\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+- hz\r
+  - 1\r
+- agent\r
+  - 机器人大脑模块是否有错误发生\r
+    - 回复应包含：没有\r
+#### /resource\r
+- description\r
+  - 小脑pico资源统计，包含cpu,temperature,memory,disk等信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+- agent\r
+  - 机器人大脑的资源状态\r
+    - 回复应包含：大脑的cpu,温度，内存，硬盘的用量\r
+#### /wifi_list\r
+- description\r
+  - 获取机器人小脑检测到的wifi热点名称\r
+- type\r
+  - Service\r
+- srv\r
+  - [WifiList](./zj_humanoid_types.md#WifiList)\r
+- demos\r
+  - connect_wifi_pico.py\r
+- agent\r
+  - 当前机器人小脑检测到多少个wifi信号\r
+    - 回复应大于1\r
+#### /connect_wifi\r
+- description\r
+  - 尝试让机器人大脑orin连接wifi热点\r
+- type\r
+  - Service\r
+- srv\r
+  - [ConnectWifi](./zj_humanoid_types.md#ConnectWifi)\r
+- demos\r
+  - connect_wifi_pico.py\r
+### /joint_motor\r
+#### /errors\r
+- description\r
+  - 机器人关节电机错误信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/JointState\r
+- hz\r
+  - 1\r
+- agent\r
+  - 机器人关节是否有错误发生\r
+    - 回复应包含：没有\r
+#### /temperatures\r
+- description\r
+  - 机器人关节电机温度信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/JointState\r
+- hz\r
+  - 1\r
+- agent\r
+  - 当前机器人膝关节温度是多少\r
+    - 回复应介于10-80度之间\r
+#### /set_zero\r
+- description\r
+  - 电机自动标零服务\r
+- agent\r
+  - 机器人关节自动标零\r
+- type\r
+- demos\r
+### /work_status_form_start\r
+- description\r
+  - 机器人开机后单次工作状态发布，包含已运行时间，剩余工作时间，行进里程数等\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [Robot_WorkStatus](./zj_humanoid_types.md#Robot_WorkStatus)\r
+- hz\r
+  - 1\r
+- agent\r
+  - 描述下机器人本次开机后工作状态\r
+    - 回复因包含：已运行时间，剩余工作时间，行进里程数\r
+### /face_show\r
+#### /media_play\r
+- description\r
+  - 机器人脸部屏幕显示,播放视频或图像文件\r
+- type\r
+  - Service\r
+- srv\r
+  - [Robot_FaceShow](./zj_humanoid_types.md#Robot_FaceShow)\r
+- demos\r
+  - Robot_VideoPlay.py\r
+- agent\r
+  - 播放“Hello_World.mp4”\r
+#### /text_show\r
+- description\r
+  - 机器人脸部屏幕显示文字\r
+- type\r
+  - Service\r
+- srv\r
+  - [Robot_FaceSrceen](./zj_humanoid_types.md#Robot_FaceSrceen)\r
+- demos\r
+  - Robot_VideoPlay.py\r
+- agent\r
+  - 显示“Hello World”\r
+### /monitor\r
+- description\r
+  - 机器人内部软件和算法模块运行状态检测, 包含上肢，灵巧手，遥控器，下肢，四目相机，深度相机，定位模块，导航模块，语音模块等\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [ModulesMonitor](./zj_humanoid_types.md#ModulesMonitor)\r
+- hz\r
+## /upperlimb\r
+### /versions\r
+- decription\r
+  - 上肢模块版本号信息，包含software_version, hardware_verion等\r
+- type\r
+  - Service\r
+- srv\r
+- demos\r
+- agent\r
+  - 查询当前上肢子系统的软件版本号\r
+    - 应回复软件版本号\r
+### /joint_states\r
+- description\r
+  - 机器人上肢关节position状态值发布\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/JointState\r
+- hz\r
+  - 100\r
+- agent\r
+  - 查询当前机器人颈部pitch的角度\r
+    - 回复应处于+-42度间\r
+### /cmd_states\r
+- description\r
+  - 上肢当前运行模式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [CmdState](./zj_humanoid_types.md#CmdState)\r
+- hz\r
+  - 100\r
+- agent\r
+  - 当前上肢运行模式是什么\r
+    - 回复应处于停止状态\r
+### /go_home\r
+#### /left_arm\r
+- description\r
+  - 回原点（该原点数据为内置设置,不带碰撞检测）\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+#### /right_arm\r
+- description\r
+  - 回原点（该原点数据为内置设置）\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+#### /dual_arm\r
+- description\r
+  - 回原点（该原点数据为内置设置）\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+#### /whole_body\r
+- description\r
+  - 回原点（该原点数据为内置设置）\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+#### /set_home\r
+### /teach_mode\r
+#### /enter\r
+- description\r
+  - 进入示教模式\r
+- type\r
+  - Service\r
+- srv\r
+  - [ArmType](./zj_humanoid_types.md#ArmType)\r
+#### /exit\r
+- description\r
+  - 退出示教模式\r
+- type\r
+  - Service\r
+- srv\r
+  - [ArmType](./zj_humanoid_types.md#ArmType)\r
+### /stop_moving\r
+- description\r
+  - 停止双臂运动\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/Trigger\r
+- agent\r
+  - 停止运动\r
+### /tcp_pose\r
+- left_arm\r
+  - description\r
+    - 左手臂末端位姿\r
+  - type\r
+    - Topic/Publish\r
+  - msg\r
+    - geometry_msgs/Pose\r
+  - hz\r
+    - 100\r
+- right_arm\r
+  - description\r
+    - 右手臂末端位姿\r
+  - type\r
+    - Topic/Publish\r
+  - msg\r
+    - [Pose](./zj_humanoid_types.md#Pose)\r
+  - hz\r
+    - 100\r
+### /tcp_speed\r
+- description\r
+  - 左右手臂末端速度\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 100\r
+### /speedj\r
+#### /left_arm\r
+- description\r
+  - 关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 100\r
+#### /right_arm\r
+- description\r
+  - 关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 10\r
+#### /neck\r
+- description\r
+  - 关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 100\r
+#### /waist\r
+- description\r
+  - 关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 100\r
+#### /lift\r
+- description\r
+  - 关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 100\r
+#### /whole_body\r
+- description\r
+  - 关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+- hz\r
+  - 100\r
+#### /enable_speedj\r
+- description\r
+  - 启用关节空间速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)\r
+### /speedl\r
+#### /left_arm\r
+- description\r
+  - 笛卡尔空间 速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- srv\r
+  - [SpeedL](./zj_humanoid_types.md#SpeedL)\r
+#### /right_arm\r
+- description\r
+  - 笛卡尔空间 速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- srv\r
+  - [SpeedL](./zj_humanoid_types.md#SpeedL)\r
+#### /dual_arm\r
+- description\r
+  - 笛卡尔空间 速度控制\r
+- type\r
+  - Topic/Subscribe\r
+- srv\r
+  - [SpeedL](./zj_humanoid_types.md#SpeedL)\r
+#### /enable_speedl\r
+- description\r
+  - 启用笛卡尔空间 速度控制\r
+- type\r
+  - Service\r
+- srv\r
+  - std_srvs/SetBool\r
+### /servoj\r
+#### /left_arm\r
+- description\r
+  - 关节空间 高频位置控制\r
+- type\r
+  - Topic/Subscribe\r
+- srv\r
+  - [Joints](./zj_humanoid_types.md#Joints)\r
+#### /right_arm\r
+- description\r
+  - 关节空间 高频位置控制\r
+- type\r
+  - Topic/Subscribe\r
+- srv\r
+  - [Joints](./zj_humanoid_types.md#Joints)\r
+#### /whole_body\r
+- description\r
+  - 关节空间 高频位置控制\r
+- type\r
+  - Topic/Subscribe\r
+- srv\r
+  - [Joints](./zj_humanoid_types.md#Joints)\r
+#### /set_params\r
+- description\r
+  - 设置关节空间 高频位置跟随控制参数\r
+- type\r
+  - Service\r
+- srv\r
+  - [Servo](./zj_humanoid_types.md#Servo)\r
+#### /clear_params\r
+- description\r
+  - 退出笛卡尔空间 高频位置跟随控制\r
+- type\r
+  - Service\r
+- srv\r
+  - [Servo](./zj_humanoid_types.md#Servo)\r
+### /servol\r
+#### /left_arm\r
+- description\r
+  - 笛卡尔空间 高频位置跟随控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - geometry_msgs/Pose\r
+#### /right_arm\r
+- description\r
+  - 笛卡尔空间 高频位置跟随控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - geometry_msgs/Pose\r
+#### /dual_arm\r
+- description\r
+  - 笛卡尔空间 高频位置跟随控制\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - geometry_msgs/Pose\r
+#### /set_params\r
+- description\r
+  - 设置笛卡尔空间 高频位置跟随控制参数\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/Servo\r
+  - [Servo](./zj_humanoid_types.md#Servo)\r
+#### /clear_params\r
+- description\r
+  - 退出笛卡尔空间 高频位置跟随控制\r
+- type\r
+  - Service\r
+- srv\r
+  - [Servo](./zj_humanoid_types.md#Servo)\r
+### /movej\r
+#### /left_arm\r
+- description\r
+  - 关节轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)\r
+#### /right_arm\r
+- description\r
+  - 关节轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)\r
+#### /neck\r
+- description\r
+  - 关节轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)\r
+#### /waist\r
+- description\r
+  - 关节轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)\r
+#### /lift\r
+- description\r
+  - 关节轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)\r
+#### /whole_body\r
+- description\r
+  - 关节轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)\r
+### /movej_by_pose\r
+#### /left_arm\r
+- description\r
+  - 关节轨迹点运动(通过位姿)\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPose\r
+#### /right_arm\r
+- description\r
+  - 关节轨迹点运动(通过位姿)\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPose\r
+#### /dual_arm\r
+- description\r
+  - 关节轨迹点运动(通过位姿)\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPose\r
+### /movej_by_path\r
+#### /left_arm\r
+- description\r
+  - 关节路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPath\r
+#### /right_arm\r
+- description\r
+  - 关节路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPath\r
+#### /dual_arm\r
+- description\r
+  - 关节路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPath\r
+#### /whole_body\r
+- description\r
+  - 关节路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - uplimb/MoveJByPath\r
+### /movel\r
+#### /left_arm\r
+- description\r
+  - 直线轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveL](./zj_humanoid_types.md#MoveL)\r
+#### /right_arm\r
+- description\r
+  - 直线轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveL](./zj_humanoid_types.md#MoveL)\r
+#### /dual_arm\r
+- description\r
+  - 直线轨迹点运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveL](./zj_humanoid_types.md#MoveL)\r
+### /movel_by_path\r
+#### /left_arm\r
+- description\r
+  - 直线路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveLByPath](./zj_humanoid_types.md#MoveLByPath)\r
+#### /right_arm\r
+- description\r
+  - 直线路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveLByPath](./zj_humanoid_types.md#MoveLByPath)\r
+#### /dual_arm\r
+- description\r
+  - 直线路径轨迹运动\r
+- type\r
+  - Service\r
+- srv\r
+  - [MoveLByPath](./zj_humanoid_types.md#MoveLByPath)\r
+### /IK\r
+#### /left_arm\r
+- description\r
+  - 正运动学求解\r
+- type\r
+  - Service\r
+- srv\r
+  - [FK](./zj_humanoid_types.md#FK)\r
+#### /right_arm\r
+- description\r
+  - 正运动学求解\r
+- type\r
+  - Service\r
+- srv\r
+  - [FK](./zj_humanoid_types.md#FK)\r
+### /FK\r
+#### /left_arm\r
+- description\r
+  - 正运动学接口\r
+- type\r
+  - Service\r
+- srv\r
+  - [IK](./zj_humanoid_types.md#IK)\r
+#### /right_arm\r
+- description\r
+  - 正运动学接口\r
+- type\r
+  - Service\r
+- srv\r
+  - [IK](./zj_humanoid_types.md#IK)\r
+## /hand\r
+### /hand_joint_states\r
+- description\r
+  - 手部关节状态\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/JointState\r
+- hz\r
+  - 100\r
+- agent\r
+  - 当前左手食指的角度是多少\r
+    - 应回复0-80度之间\r
+### /wrist_force_6d\r
+#### /left_hand\r
+- description\r
+  - 右手腕部6维力传感器值\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - geometry_msgs/WrenchStamped\r
+- hz\r
+  - 100\r
+- agent\r
+  - 当前左手腕部的检测到多少力\r
+    - 应回复0牛顿\r
+#### /right_hand\r
+- description\r
+  - 左手腕部6维力传感器值\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - geometry_msgs/WrenchStamped\r
+- hz\r
+  - 100\r
+- agent\r
+  - 当前右手腕部的检测到多少力\r
+    - 应回复0牛顿\r
+### /finger_pressures\r
+- description\r
+  - 手指压力传感器状态值\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/JointState\r
+- hz\r
+  - 100\r
+- agent\r
+  - 当前左手食指的检测到多少力\r
+    - 应回复0牛顿\r
+### /gesture_switch\r
+#### /left_hand\r
+- description\r
+  - 左手掌手势控制\r
+- type\r
+- srv\r
+- demos\r
+- agent\r
+  - 左手摆出1的手势\r
+    - 订阅/hand_joint_states左手中指数值应大于60\r
+#### /right_hand\r
+- description\r
+  - 右手掌手势控制\r
+- type\r
+  - Service\r
+- srv\r
+- demos\r
+- agent\r
+  - 右手摆出1的手势\r
+    - 订阅/hand_joint_states右手中指数值应大于60\r
+### /task_switch\r
+#### /left_hand\r
+- description\r
+  - 左手掌任务控制\r
+- type\r
+  - Service\r
+- srv\r
+- demos\r
+#### /right_hand\r
+- description\r
+  - 右手掌任务控制\r
+- type\r
+  - Service\r
+- srv\r
+- demos\r
+### /joint_switch\r
+#### /left_hand\r
+- description\r
+  - 左手掌关节控制\r
+- type\r
+  - Service\r
+- srv\r
+- demos\r
+- agent\r
+  - 左手食指弯曲40度\r
+    - 订阅/hand_joint_states左手食指数值应接近40度\r
+#### /right_hand\r
+- description\r
+  - 左手掌关节控制\r
+- type\r
+  - Service\r
+- srv\r
+- demos\r
+- agent\r
+  - 右手食指弯曲40度\r
+    - 订阅/hand_joint_states左手食指数值应接近40度\r
+### /versions\r
+- decription\r
+  - 灵巧手版本号信息\r
+- type\r
+  - Service\r
+- srv\r
+  - [software_version, hardware_verion](./zj_humanoid_types.md#software_version, hardware_verion)\r
+- demos\r
+- agent\r
+  - 查询当前灵巧手子系统的版本号\r
+## /lowerlimb\r
+### /cmd_vel\r
+#### /joy\r
+- description\r
+  - 游戏手柄控制行走\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - geometry_msgs/Twist\r
+- hz\r
+  - 10\r
+#### /web\r
+- description\r
+  - 网络控制行走\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - geometry_msgs/Twist\r
+- hz\r
+  - 10\r
+#### /calib\r
+- description\r
+  - 导航算法控制行走\r
+- type\r
+  - Topic/Subscribe\r
+- msg\r
+  - geometry_msgs/Twist\r
+- hz\r
+  - 10\r
+### /set_stand\r
+- decription\r
+  - 站立姿态\r
+- type\r
+  - Topic/Subscribe\r
+### /set_lie\r
+- decription\r
+  - 下肢泄力\r
+- type\r
+  - Topic/Subscribe\r
+### /start_move\r
+- decription\r
+  - 开启运动模式\r
+- type\r
+  - Topic/Subscribe\r
+### /uplimb_occupation\r
+- decription\r
+  - 上肢控制请求\r
+- type\r
+  - Service\r
+### /versions\r
+- decription\r
+  - 上肢模块版本号信息\r
+- type\r
+  - Service\r
+- srv\r
+  - [software_version, hardware_verion](./zj_humanoid_types.md#software_version, hardware_verion)\r
+- demos\r
+### /body_imu\r
+- description\r
+  - 腰部imu值\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/JointState\r
+- hz\r
+  - 100\r
+## /sensor\r
+### /CAM_A\r
+#### /camera_info\r
+- decription\r
+  - 相机A的参数信息\r
+- type\r
+  - Service\r
+- srv\r
+  - [Robot_CameraInfo](./zj_humanoid_types.md#Robot_CameraInfo)\r
+- demos\r
+- agent\r
+  - 相机A的分辨率是多少\r
+    - 回复应包含1280和720\r
+  - 相机A安装在机器人左眼的位置上\r
+#### /image_raw\r
+- description\r
+  - 相机A的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 16\r
+- agent\r
+  - 相机A的目前帧率是多少\r
+    - 回复应接近16\r
+#### /compressed\r
+- description\r
+  - 相机A的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CompressedImage\r
+- hz\r
+  - 16\r
+### /CAM_B\r
+#### /camera_info\r
+- decription\r
+  - 相机B的参数信息\r
+- type\r
+  - Service\r
+- srv\r
+  - [Robot_CameraInfo](./zj_humanoid_types.md#Robot_CameraInfo)\r
+- demos\r
+- agent\r
+  - 相机B的分辨率是多少\r
+    - 回复应包含1280和720\r
+  - 相机B安装在机器人右眼的位置上\r
+#### /image_raw\r
+- description\r
+  - 相机B的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 16\r
+- agent\r
+  - 相机B的目前帧率是多少\r
+    - 回复应接近16\r
+#### /compressed\r
+- description\r
+  - 相机B的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CompressedImage\r
+- hz\r
+  - 16\r
+### /CAM_C\r
+#### /camera_info\r
+- decription\r
+  - 相机C的参数信息\r
+- type\r
+  - Service\r
+- srv\r
+  - [Robot_CameraInfo](./zj_humanoid_types.md#Robot_CameraInfo)\r
+- demos\r
+- agent\r
+  - 相机C的目前帧率是多少\r
+    - 回复应接近16\r
+  - 相机C大致安装在机器人右侧太阳穴的位置上\r
+#### /image_raw\r
+- description\r
+  - 相机C的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 16\r
+- agent\r
+  - 相机C的目前帧率是多少\r
+    - 回复应接近16\r
+#### /compressed\r
+- description\r
+  - 相机C的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CompressedImage\r
+- hz\r
+  - 16\r
+### /CAM_D\r
+#### /camera_info\r
+- decription\r
+  - 相机D的参数信息\r
+- type\r
+  - Service\r
+- srv\r
+  - [Robot_CameraInfo](./zj_humanoid_types.md#Robot_CameraInfo)\r
+- demos\r
+- agent\r
+  - 相机D的目前帧率是多少\r
+    - 回复应接近16\r
+  - 相机D大致安装在机器人左侧太阳穴的位置上\r
+#### /image_raw\r
+- description\r
+  - 相机D的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 16\r
+- agent\r
+  - 相机D的目前帧率是多少\r
+    - 回复应接近16\r
+#### /compressed\r
+- description\r
+  - 相机D的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CompressedImage\r
+- hz\r
+  - 16\r
+### /head_imu\r
+- description\r
+  - 头部相机的IMU数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Imu\r
+- hz\r
+  - 100\r
+- agent\r
+  - 头部IMU的目前帧率是多少\r
+    - 回复应接近100\r
+### /realsense_up\r
+#### /aligned_depth_to_color\r
+- description\r
+  - 和RGB对齐后的深度图\r
+##### /camera_info\r
+- decription\r
+  - 胸部深度相机的参数信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CameraInfo\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+- description\r
+  - 胸部深度相机的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+###### /compressed\r
+- description\r
+  - 胸部深度相机的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+#### /color\r
+- description\r
+  - 深度相机RGB图\r
+##### /camera_info\r
+- decription\r
+  - 胸部深度相机的参数信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CameraInfo\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+- description\r
+  - 胸部深度相机的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+###### /compressed\r
+- description\r
+  - 胸部深度相机的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+#### /depth\r
+- 名称：深度图\r
+##### /camera_info\r
+- decription\r
+  - 胸部深度相机的参数信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CameraInfo\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+- description\r
+  - 胸部深度相机的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+###### /compressed\r
+- description\r
+  - 胸部深度相机的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+### /realsense_down\r
+#### /aligned_depth_to_color\r
+- description\r
+  - 和RGB对齐后的深度图\r
+##### /camera_info\r
+- decription\r
+  - 胸部深度相机的参数信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CameraInfo\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+- description\r
+  - 胸部深度相机的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+###### /compressed\r
+- description\r
+  - 胸部深度相机的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+#### /color\r
+- description\r
+  - 深度相机RGB图\r
+##### /camera_info\r
+- decription\r
+  - 胸部深度相机的参数信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CameraInfo\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+- description\r
+  - 胸部深度相机的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+###### /compressed\r
+- description\r
+  - 胸部深度相机的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+#### /depth\r
+- 名称：深度图\r
+##### /camera_info\r
+- decription\r
+  - 胸部深度相机的参数信息\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/CameraInfo\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+- description\r
+  - 胸部深度相机的RGB图像源数据\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+##### /image_raw\r
+###### /compressed\r
+- description\r
+  - 胸部深度相机的RGB图像JPG格式\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - sensor_msgs/Image\r
+- hz\r
+  - 30\r
+## /manipulate\r
+### /naviai_manip_update_scene_service\r
+- description\r
+  - 机器人场景更新,基于二维码，需要场景中有二维码\r
+- type\r
+  - Service\r
+- srv\r
+  - [SceneUpdate](./zj_humanoid_types.md#SceneUpdate)\r
+- demos\r
+  - naviai_manip_scene_update_client.py\r
+- agent\r
+  - 机器人抓取物品前的环境感知\r
+### /joint_space_trajectory_planner\r
+- description\r
+  - 关节空间轨迹规划，输出关节轨迹\r
+- type\r
+  - Service\r
+- srv\r
+  - [GetTrajectory](./zj_humanoid_types.md#GetTrajectory)\r
+- demos\r
+  - trajectory_plan_client.py\r
+- agent\r
+  - 示教模式下记录各个关节数据，据此生成完整的执行轨迹\r
+### /naviai_manip_motion_plan_service\r
+- description\r
+  - 末端空间轨迹规划\r
+- type\r
+  - Service\r
+- srv\r
+  - [MotionPlan](./zj_humanoid_types.md#MotionPlan)\r
+- demos\r
+  - naviai_manip_motion_plan_client.py\r
+- agent\r
+  - 示教模式下记录各个末端执行器数据，据此生成完整的执行轨迹\r
+### /camera_calibration\r
+- description\r
+  - 相机内外参标定\r
+- type\r
+  - Service\r
+- srv\r
+  - [CameraCalibration](./zj_humanoid_types.md#CameraCalibration)\r
+- agent\r
+  - 自动相机内外参标定，外参标定时机器人会执行一段轨迹，拍摄不同角度的照片，从而计算外参\r
+### /grasp_teach_service\r
+- description\r
+  - 视觉抓取示教服务\r
+- type\r
+  - Service\r
+- srv\r
+  - [GraspTeach](./zj_humanoid_types.md#GraspTeach)\r
+- agent\r
+  - 视觉示教抓取，让机器人知道该从什么方位抓取物品\r
+### /pose_estimation_service\r
+- description\r
+  - 获取目标物体位姿\r
+- type\r
+  - Service\r
+- srv\r
+  - [PoseEst](./zj_humanoid_types.md#PoseEst)\r
+- demos\r
+  - pose_estimator_client.py\r
+- agent\r
+  - 输入图像获取指定物品的6D位姿\r
+### /instance_segmentation_service\r
+- description\r
+  - 实例分割服务\r
+- type\r
+  - Service\r
+- srv\r
+  - [InstSeg](./zj_humanoid_types.md#InstSeg)\r
+- demos\r
+  - seg_pre_service_client.py\r
+- agent\r
+  - 输入图像获取指定物品的实例分割信息\r
+### /execute_pick_task\r
+- description\r
+  - 输出物品名称执行抓取服务\r
+- type\r
+  - Service\r
+- srv\r
+  - [ExecutePickTask](./zj_humanoid_types.md#ExecutePickTask)\r
+- demos\r
+  - rosservice call /execute_pick_task "target_label: chips_can_orin"\r
+- agent\r
+  - 帮我拿xxx物品\r
+    - 调用该服务执行抓取\r
+## /navigation\r
+### /odom_info\r
+- description\r
+  - 当前位姿信息，有定位时才会输出结果\r
+- type\r
+  - Topic/Subscriber\r
+- msg\r
+  - [nav_msgs::Odometry](./zj_humanoid_types.md#nav_msgs::Odometry)\r
+- hz\r
+  - 10\r
+- demos\r
+  - rostopic echo /odom_info\r
+### /local_map\r
+- description\r
+  - 局部障碍物信息\r
+- type\r
+  - Topic/Subscriber\r
+- msg\r
+  - [LocalMap](./zj_humanoid_types.md#LocalMap)\r
+- hz\r
+  - 10\r
+- demos\r
+  - rostopic echo /odom_info\r
+### /task_info\r
+- description\r
+  - 发布导航任务信息，该话题仅发布导航任务，不返回导航的结果\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+  - [TakInfo](./zj_humanoid_types.md#TakInfo)\r
+- hz\r
+  - 1\r
+- demos\r
+  - point2point.py\r
+### /navigation_status\r
+- description\r
+  - 当前导航状态信息\r
+- type\r
+  - Topic/Subscriber\r
+- msg\r
+  - [NavigationStatus](./zj_humanoid_types.md#NavigationStatus)\r
+- hz\r
+  - 20\r
+- demos\r
+  - rostopic echo /navigation_status\r
+### /map\r
+- description\r
+  - 全局地图信息\r
+- type\r
+  - Topic/Subscriber\r
+- msg\r
+  - [nav_msgs::OccupancyGrid](./zj_humanoid_types.md#nav_msgs::OccupancyGrid)\r
+- hz\r
+  - 非实时\r
+- demos\r
+  - rostopic echo /map\r
+### /point_cloud_360\r
+- description\r
+## /audio\r
+### /microphone\r
+#### /get_devices_list\r
+- description\r
+  - 获取麦克风设备列表\r
+- type\r
+  - Service\r
+- srv\r
+  - [GetDeviceList](./zj_humanoid_types.md#GetDeviceList)\r
+- demo\r
+- agent\r
+  - 检查当前有多少个麦克风设备\r
+    - 回复数量应大于1\r
+#### /select_device\r
+- description\r
+  - 选中生效麦克风\r
+- type\r
+  - Service\r
+- srv\r
+  - [SetDevice](./zj_humanoid_types.md#SetDevice)\r
+- demo\r
+- agent\r
+  - 选择第一个麦克风\r
+#### /audio_data\r
+- description\r
+  - 麦克风收音后的音频数据流\r
+- msg: \r
+  - AudioDate\r
+- hz\r
+### /speaker\r
+#### /get_devices_list\r
+- description\r
+  - 获取喇叭设备列表\r
+- type\r
+  - Service\r
+- GetDeviceList\r
+- demo\r
+- agent\r
+  - 检查当前有多少个喇叭设备\r
+    - 回复数量应大于1\r
+#### /select_device\r
+- description\r
+  - 选中生效喇叭\r
+- type\r
+  - Service\r
+- srv\r
+  - [SetDevice](./zj_humanoid_types.md#SetDevice)\r
+- demo\r
+- agent\r
+  - 选择第一个喇叭\r
+#### /get_volume\r
+- description\r
+  - 获取当前音量\r
+- type\r
+  - Service\r
+- msg\r
+- agent\r
+  - 获取当前的系统音量大小\r
+    - 应回复音量0~100\r
+#### /set_volume\r
+- description\r
+  - 设置当前音量大小\r
+- type\r
+  - Service\r
+- agent\r
+  - 设置音量为50\r
+### /listen\r
+- description\r
+  - 倾听服务\r
+- type\r
+  - Service\r
+- srv\r
+- agent\r
+  - 开始倾听\r
+### /listen_state\r
+- description\r
+  - 唤醒倾听状态发布\r
+- type\r
+  - Topic/Publish\r
+- hz\r
+  - 100hz\r
+- agent\r
+  - 当前是否为倾听状态\r
+### /asr_text\r
+- description\r
+  - 语音转文字服务\r
+- agent\r
+  - 当前机器人听到了什么\r
+- type\r
+  - Topic/Publish\r
+- msg\r
+### /tts_service\r
+- description\r
+  - 文字转语音服务\r
+- agent\r
+  - 请让机器人说“hello world”\r
+- demo\r
+### /media_play\r
+- description\r
+  - 音频文件播放\r
+- 请播放“公司介绍.mp3”\r
+- type\r
+  - Service\r
+- srv\r
+- demo\r
+### /LLM_chat\r
+- description\r
+  - LLM智能对话服务\r
+- 和机器人发起对话，说“hello world”\r
+- type\r
+  - Service\r
+- srv\r
+- demo`,h=JSON.parse('{"title":"ROS API 导图列表","description":"","frontmatter":{},"headers":[],"relativePath":"markmap_ros_api.md","filePath":"markmap_ros_api.md"}'),d={name:"markmap_ros_api.md"},v=Object.assign(d,{setup(_){const e=m;return(y,r)=>{const i=s("Markmap");return o(),t("div",null,[r[0]||(r[0]=n("h1",{id:"ros-api-导图列表",tabindex:"-1"},[a("ROS API 导图列表 "),n("a",{class:"header-anchor",href:"#ros-api-导图列表","aria-label":'Permalink to "ROS API 导图列表"'},"​")],-1)),p(i,{content:c(e)},null,8,["content"])])}}});export{h as __pageData,v as default};
