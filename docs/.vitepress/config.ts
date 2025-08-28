@@ -19,7 +19,6 @@ export default defineConfig({
           { text: '快速开始', link: '/' },
           {
             text: 'ROS API',
-            collapsible: true,
             items: [
               { text: '导图', link: '/markmap_ros_api' },
               { text: '文档', link: '/zj_humanoid_ros_api' },
@@ -27,7 +26,6 @@ export default defineConfig({
           },
           {
             text: 'Message Type',
-            collapsible: true,
             items: [
               { text: '导图', link: '/markmap_message_type' },
               { text: '文档', link: '/zj_humanoid_types' },
@@ -37,8 +35,8 @@ export default defineConfig({
       }
     ],
 
-    outline: { level: [2, 4], label: 'On this page' },
-    appearance: false
+    outline: { level: [2, 3], label: 'On this page' },
+
   },
 
   vite: {
