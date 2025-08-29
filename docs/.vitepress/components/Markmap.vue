@@ -5,11 +5,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, onBeforeUnmount } from 'vue'
 import { Markmap, deriveOptions } from 'markmap-view'
 import { Transformer } from 'markmap-lib'
 import ROSLIB from 'roslib'
 import { parseFrontmatter } from '../utils/frontmatter.js'
+import rosConnection from '../utils/rosConnection.js'
 import { 
   updateSvgHeight, 
   setDefaultFold,
@@ -27,8 +28,95 @@ const props = defineProps({
 const svgRef = ref()
 let mm = null
 
-// single ROS connection reference
-const rosRef = new ROSLIB.Ros({ url: 'ws://localhost:9090' })
+// ROS connection reference
+let rosRef = null
+
+// 初始化 ROS 连接
+const initRosConnection = async () => {
+  try {
+    await rosConnection.connect()
+    rosRef = rosConnection.getRosInstance()
+    console.log('ROS 连接已初始化')
+    
+    // 存储获取到的话题和服务列表
+    window.availableTopics = []
+    window.availableServices = []
+    // 标志变量，指示是否已经获取到话题和服务列表
+    window.rosDataLoaded = false
+    
+    // 获取机器人上所有的话题列表
+    const topicsClient = new ROSLIB.Service({
+      ros: rosRef,
+      name: '/rosapi/topics',
+      serviceType: 'rosapi/Topics'
+    })
+    
+    const topicsRequest = new ROSLIB.ServiceRequest({})
+    topicsClient.callService(topicsRequest, (result) => {
+      //  console.log('机器人上所有的话题列表:', result.topics)
+        window.availableTopics = result.topics || []
+      }, (error) => {
+        console.error('获取话题列表失败:', error)
+      })
+      
+      // 获取机器人上所有的服务列表
+      const servicesClient = new ROSLIB.Service({
+        ros: rosRef,
+        name: '/rosapi/services',
+        serviceType: 'rosapi/Services'
+      })
+      
+      const servicesRequest = new ROSLIB.ServiceRequest({})
+      servicesClient.callService(servicesRequest, (result) => {
+      //  console.log('机器人上所有的服务列表:', result.services)
+        window.availableServices = result.services || []
+      // 设置标志变量为 true，表示已经获取到话题和服务列表
+      window.rosDataLoaded = true
+      // 重新渲染 markmap 以应用 ROS 实体
+      if (mm && props.content) {
+        renderMarkmap()
+      }
+    }, (error) => {
+      console.error('获取服务列表失败:', error)
+    })
+
+  } catch (error) {
+    console.error('ROS 连接初始化失败:', error)
+  }
+}
+
+// 在 renderMarkmap 函数中添加这个函数
+const applyNodeColors = (root) => {
+  const traverse = (node) => {
+    // 如果节点有自定义颜色
+    if (node.payload?.color) {
+      // 查找对应的 SVG 节点并应用颜色
+      const targetNode = mm.svg.selectAll('.markmap-node')
+        .filter(function(d) {
+          return d === node; // 直接比较数据对象
+        });
+      if (!targetNode.empty()) {
+        console.log(targetNode);
+        // 应用背景颜色到圆圈
+        targetNode.select('circle')
+          .style('fill', node.payload.color);
+        
+        // 可选：也可以设置文字颜色
+        // targetNode.select('text')
+        //   .style('fill', node.payload.color);
+        
+        console.log(`✅ 已应用颜色 ${node.payload.color} 到节点: ${node.content}`);
+      }
+    }
+    
+    // 递归处理子节点
+    if (node.children) {
+      node.children.forEach(traverse);
+    }
+  };
+  
+  traverse(root);
+};
 
 const transformer = new Transformer()
 
@@ -76,6 +164,11 @@ const addButtonFunctionality = (root) => {
         const defaultServiceType = 'std_srvs/Trigger'
         const firstType = msgType[0] || defaultTopicType
         const commType = (typeNode && typeNode.children?.[0]?.content) || 'Topic/Publish'
+        // 检查是否已经获取到话题和服务列表
+        if (!window.rosDataLoaded) {
+          console.log('ROS 数据尚未加载，跳过创建 ROS 实体')
+          return
+        }
         try {
           if (String(commType).toLowerCase().includes('service')) {
             demosNode.payload = demosNode.payload || {}
@@ -84,6 +177,16 @@ const addButtonFunctionality = (root) => {
               name: toppicName,
               serviceType: firstType || defaultServiceType,
             })
+            // commType是'service'的检查，检查result.services里是否包含toppicName
+            const isServiceAvailable = window.availableServices.some(service => service === toppicName)
+            if (!isServiceAvailable) {
+              console.warn(`服务 ${toppicName} 在机器人上不可用`)
+              // 将不可用的节点标记为灰色
+              demosNode.payload.color = '#95a5a6'
+            } else {
+              // 为可用的服务类型的 demosNode 设置蓝色
+              demosNode.payload.color = '#3498db'
+            }
           } else {
             demosNode.payload = demosNode.payload || {}
             demosNode.payload.rosTopic = new ROSLIB.Topic({
@@ -91,8 +194,18 @@ const addButtonFunctionality = (root) => {
               name: toppicName,
               messageType: firstType || defaultTopicType,
             })
+            //是topic的）检查result.topics里是否包含toppicName
+            const isTopicAvailable = window.availableTopics.some(topic => topic === toppicName)
+            if (!isTopicAvailable) {
+              console.warn(`话题 ${toppicName} 在机器人上不可用`)
+              // 将不可用的节点标记为灰色
+              demosNode.payload.color = '#95a5a6'
+            } else {
+              // 为可用的主题类型的 demosNode 设置绿色
+              demosNode.payload.color = '#2ecc71'
+            }
           }
-          console.log(demosNode.payload)
+          // console.log(demosNode.payload)
         } catch (e) {
           console.warn('Create ROS entity failed:', e)
         }
@@ -187,6 +300,7 @@ const renderMarkmap = () => {
     // 初次高度计算
     updateSvgHeight(root, svgRef.value, props.minHeight)
     mm.fit()
+    applyNodeColors(root);
 
     mm.svg.on('click', () => {
       requestAnimationFrame(() => {
@@ -209,7 +323,16 @@ const renderMarkmap = () => {
 }
 
 onMounted(() => {
+  // 不等待 ROS 连接，直接渲染 markmap
   renderMarkmap()
+  
+  // 异步初始化 ROS 连接，不阻塞页面渲染
+  initRosConnection().then(() => {
+    console.log('ROS 连接已就绪，可以与 ROS 交互')
+    // 如果需要在 ROS 连接就绪后重新渲染某些内容，可以在这里调用
+  }).catch(error => {
+    console.error('ROS 连接初始化失败:', error)
+  })
 })
 
 watch(() => props.content, renderMarkmap, { immediate: true })
