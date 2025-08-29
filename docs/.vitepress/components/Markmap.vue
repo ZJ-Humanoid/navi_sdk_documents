@@ -8,6 +8,7 @@
 import { ref, onMounted, watch } from 'vue'
 import { Markmap, deriveOptions } from 'markmap-view'
 import { Transformer } from 'markmap-lib'
+import ROSLIB from 'roslib'
 import { parseFrontmatter } from '../utils/frontmatter.js'
 import { 
   updateSvgHeight, 
@@ -25,6 +26,9 @@ const props = defineProps({
 
 const svgRef = ref()
 let mm = null
+
+// single ROS connection reference
+const rosRef = new ROSLIB.Ros({ url: 'ws://localhost:9090' })
 
 const transformer = new Transformer()
 
@@ -45,43 +49,61 @@ const addButtonFunctionality = (root) => {
 
   const allDemosNodes = findAllDemosNodes(root)
 
-  // 为所有 demos 节点的子节点添加按键标识
+  // 为所有 demos 节点创建 rosbridge 通讯节点，并为其子节点添加按键标识
   allDemosNodes.forEach((demosNode) => {
     // 搜寻兄弟节点的功能
     const parent = findParentNode(root, demosNode)
     if (parent) {
-      // 先找到type字段，打印它的child的内容
+      // 先找到type字段
       const typeNode = parent.children?.find(child => child.content === 'type')
-      if (typeNode && typeNode.children) {
-        console.log('Type:', typeNode.children.map(c => c.content))
-      }
 
-      // 继续找兄弟字段，找到msg_type, 打印拼装后msg_type的内容
+      // 找到msg_type
       const msgTypeNode = parent.children?.find(child => child.content === 'msg_type')
       if (msgTypeNode && msgTypeNode.children) {
-        // 计算从 root 到 parent 的路径，提取二级节点名（root 的第一个子节点）
+        // 计算二级名
         const path = getNodePath(root, parent)
         const secondLevelName = path.length >= 2 ? path[1].content : 'unknown'
         const childNames = msgTypeNode.children.map(c => c.content)
-        const typeStrings = childNames.map(childName => 
+        const msgType = childNames.map(childName => 
           childName.includes('/') ? childName : `zj_humanoid${secondLevelName}/${childName}`
         )
-        console.log('msg_type:', typeStrings)
-
-        // 组装 msg_type 节点的路径（不包含自身），不使用分隔符
+        // 组装路径（不含自身，无分隔符）
         const pathToMsgType = getNodePath(root, msgTypeNode)
-        const toppicStrings = pathToMsgType
-          .slice(0, -1).map(n => n.content).join('')
-        console.log('Topic:', toppicStrings)
+        const toppicName = pathToMsgType.slice(0, -1).map(n => n.content).join('')
 
+        // 为当前 demosNode 自身创建 ROS 通讯对象（不针对子节点）
+        const defaultTopicType = 'std_msgs/String'
+        const defaultServiceType = 'std_srvs/Trigger'
+        const firstType = msgType[0] || defaultTopicType
+        const commType = (typeNode && typeNode.children?.[0]?.content) || 'Topic/Publish'
+        try {
+          if (String(commType).toLowerCase().includes('service')) {
+            demosNode.payload = demosNode.payload || {}
+            demosNode.payload.rosService = new ROSLIB.Service({
+              ros: rosRef,
+              name: toppicName,
+              serviceType: firstType || defaultServiceType,
+            })
+          } else {
+            demosNode.payload = demosNode.payload || {}
+            demosNode.payload.rosTopic = new ROSLIB.Topic({
+              ros: rosRef,
+              name: toppicName,
+              messageType: firstType || defaultTopicType,
+            })
+          }
+          console.log(demosNode.payload)
+        } catch (e) {
+          console.warn('Create ROS entity failed:', e)
+        }
       }
     }
 
+    // 子节点仅标记为按钮，不创建 ROS 实体
     if (demosNode.children) {
-      demosNode.children.forEach(child => {
+      demosNode.children.forEach((child) => {
         if (!child.payload) child.payload = {}
         child.payload.isButton = true
-        // child.payload.buttonText = child.content
       })
     }
   })
@@ -93,8 +115,9 @@ const addButtonClickEvents = (root) => {
   const traverse = (node) => {
     if (node.payload?.isButton ) {
       // 查找父节点
-      const parent = findParentNode(root, node)
-      if(parent.payload?.fold){
+      const path = getNodePath(root, node)
+      const parent = path.length >= 2 ? path[path.length - 2] : null
+      if(parent?.payload?.fold){
         return
       }
       

@@ -2,37 +2,43 @@
   "hash": "8cd9c104",
   "configHash": "4a840d65",
   "lockfileHash": "ddffab06",
-  "browserHash": "d5d005a5",
+  "browserHash": "1616f6e1",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "6f5e1bec",
+      "fileHash": "02d1ff3e",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "4f55451d",
+      "fileHash": "40e589f0",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "0d95eef4",
+      "fileHash": "5ffb1245",
       "needsInterop": false
     },
     "markmap-lib": {
       "src": "../../../../node_modules/markmap-lib/dist/browser/index.mjs",
       "file": "markmap-lib.js",
-      "fileHash": "191d67ca",
+      "fileHash": "e05272dc",
       "needsInterop": false
     },
     "markmap-view": {
       "src": "../../../../node_modules/markmap-view/dist/index.js",
       "file": "markmap-view.js",
-      "fileHash": "7af619e2",
+      "fileHash": "dcba1206",
       "needsInterop": false
+    },
+    "roslib": {
+      "src": "../../../../node_modules/roslib/src/RosLib.js",
+      "file": "roslib.js",
+      "fileHash": "8da2cbb0",
+      "needsInterop": true
     }
   },
   "chunks": {
