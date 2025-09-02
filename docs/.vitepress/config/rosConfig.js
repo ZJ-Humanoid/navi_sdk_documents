@@ -16,6 +16,7 @@ const defaultConfig = {
   getDynamicUrl: function() {
     if (typeof window !== 'undefined') {
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      console.log('protocol', protocol);
       return `${protocol}//172.16.11.238:9090${protocol === 'wss:' ? '/wss' : ''}`;
     }
     return this.url; // 服务器端返回默认URL
@@ -28,5 +29,10 @@ const config = {
   // 如果有环境变量，可以在这里覆盖默认值
   // url: import.meta.env.VITE_ROS_BRIDGE_URL || defaultConfig.url,
 };
+
+// 在客户端环境下，将url替换为动态获取的URL
+if (typeof window !== 'undefined') {
+  config.url = config.getDynamicUrl();
+}
 
 export default config;
