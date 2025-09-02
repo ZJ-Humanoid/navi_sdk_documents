@@ -2,12 +2,11 @@
  * ROS 连接配置文件
  * 用于管理 ROSBridge 连接参数
  */
-
-// 默认配置
-// 默认配置
+const ip = '172.16.11.238';
+const port = '9090';
 const defaultConfig = {
   // 在构建时使用默认ws协议，在客户端运行时根据页面协议动态调整
-  url: 'ws://172.16.11.238:9090',
+  url: `ws://${ip}:${port}`,
   reconnectInterval: 3000, // 重连间隔时间(毫秒)
   maxReconnectAttempts: 10, // 最大重连尝试次数
   timeout: 5000, // 连接超时时间(毫秒),
@@ -17,9 +16,33 @@ const defaultConfig = {
     if (typeof window !== 'undefined') {
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       console.log('protocol', protocol);
-      return `${protocol}//172.16.11.238${protocol === 'wss:' ? '/wss' : ':9090'}`;
+
+      // 如果是HTTPS协议，额外发起一个HTTPS请求到IP地址
+      if (protocol === 'wss:') {
+        this.testHttpsConnection();
+      }
+
+      return `${protocol}//${ip}${protocol === 'wss:' ? '/wss' : `:${port}`}`;
     }
     return this.url; // 服务器端返回默认URL
+  },
+
+  // 测试HTTPS连接的方法
+  testHttpsConnection: function() {
+    const testUrl = `https://${ip}`;
+    console.log(`Testing HTTPS connection to: ${testUrl}`);
+
+    fetch(testUrl, {
+      method: 'GET',
+      mode: 'no-cors', // 使用no-cors模式避免CORS问题
+      cache: 'no-cache',
+    })
+    .then(response => {
+      console.log('HTTPS connection test successful');
+    })
+    .catch(error => {
+      console.warn('HTTPS connection test failed:', error);
+    });
   }
 };
 
