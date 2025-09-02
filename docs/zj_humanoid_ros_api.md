@@ -6,7 +6,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - RobotState
+  - [RobotState](./zj_humanoid_types.md#RobotState)
 - hz
   - 1
 - demos
@@ -69,7 +69,7 @@
 - type
   - Service
 - msg_type
-  - BasicInfo
+  - [BasicInfo](./zj_humanoid_types.md#BasicInfo)
 - demos
   - I2_info
   - WA2_info
@@ -82,7 +82,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - BatteryInfo
+  - [BatteryInfo](./zj_humanoid_types.md#BatteryInfo)
 - hz
   - 1
 - agent
@@ -123,7 +123,7 @@
 - type
   - Service
 - msg_type
-  - WifiList
+  - [WifiList](./zj_humanoid_types.md#WifiList)
 - demos
   - wifi_detected
 - agent
@@ -135,7 +135,7 @@
 - type
   - Service
 - msg_type
-  - ConnectWifi
+  - [ConnectWifi](./zj_humanoid_types.md#ConnectWifi)
 - demos
   - connect_wifi_orin
 ### /pico_states
@@ -169,7 +169,7 @@
 - type
   - Service
 - msg_type
-  - WifiList
+  - [WifiList](./zj_humanoid_types.md#WifiList)
 - demos
   - connect_wifi_pico
 - agent
@@ -181,7 +181,7 @@
 - type
   - Service
 - msg_type
-  - ConnectWifi
+  - [ConnectWifi](./zj_humanoid_types.md#ConnectWifi)
 - demos
   - connect_wifi_pico
 ### /joint_motor
@@ -229,7 +229,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - Robot_WorkStatus
+  - [Robot_WorkStatus](./zj_humanoid_types.md#Robot_WorkStatus)
 - hz
   - 1
 - agent
@@ -244,7 +244,7 @@
 - type
   - Service
 - msg_type
-  - Robot_FaceShow
+  - [Robot_FaceShow](./zj_humanoid_types.md#Robot_FaceShow)
 - demos
   - Robot_media_play
 - agent
@@ -255,7 +255,7 @@
 - type
   - Service
 - msg_type
-  - Robot_FaceText
+  - [Robot_FaceText](./zj_humanoid_types.md#Robot_FaceText)
 - demos
   - Robot_text_show
 - agent
@@ -266,7 +266,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - ModulesMonitor
+  - [ModulesMonitor](./zj_humanoid_types.md#ModulesMonitor)
 - hz
   - 1
 - demos
@@ -303,7 +303,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - CmdState
+  - [CmdState](./zj_humanoid_types.md#CmdState)
 - hz
   - 100
 - agent
@@ -355,7 +355,7 @@
 - type
   - Service
 - srv
-  - [ArmType](./zj_humanoid_types.md#ArmType)
+  - ArmType
 - demos
   - left_arm_teach_mode
 #### /exit
@@ -364,7 +364,7 @@
 - type
   - Service
 - msg_type
-  - ArmType
+  - [ArmType](./zj_humanoid_types.md#ArmType)
 - demos
   - exit_left_arm_teach_mode
 ### /stop_moving
@@ -396,7 +396,7 @@
   - type
     - Topic/Publish
   - msg_type
-    - Pose
+    - [Pose](./zj_humanoid_types.md#Pose)
   - hz
     - 100
   - demos
@@ -407,7 +407,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 100
 - demos
@@ -419,7 +419,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 100
 - demos
@@ -431,7 +431,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 10
 - demos
@@ -443,7 +443,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 100
 - demos
@@ -455,7 +455,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 100
 - demos
@@ -467,7 +467,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 100
 - demos
@@ -479,7 +479,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - hz
   - 100
 #### /enable_speedj
@@ -488,7 +488,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - TcpSpeed
+  - [TcpSpeed](./zj_humanoid_types.md#TcpSpeed)
 - demos
   - enable_speedj
 ### /speedl
@@ -498,7 +498,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - SpeedL
+  - [SpeedL](./zj_humanoid_types.md#SpeedL)
 - demos
 #### /right_arm
 - description
@@ -506,7 +506,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - SpeedL
+  - [SpeedL](./zj_humanoid_types.md#SpeedL)
 - demos
 #### /dual_arm
 - description
@@ -514,7 +514,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - SpeedL
+  - [SpeedL](./zj_humanoid_types.md#SpeedL)
 - demos
 #### /enable_speedl
 - description
@@ -531,7 +531,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - Joints
+  - [Joints](./zj_humanoid_types.md#Joints)
 - demos
 #### /right_arm
 - description
@@ -539,7 +539,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - Joints
+  - [Joints](./zj_humanoid_types.md#Joints)
 - demos
 #### /whole_body
 - description
@@ -547,7 +547,7 @@
 - type
   - Topic/Subscribe
 - msg_type
-  - Joints
+  - [Joints](./zj_humanoid_types.md#Joints)
 - demos
 #### /set_params
 - description
@@ -555,7 +555,7 @@
 - type
   - Service
 - msg_type
-  - Servo
+  - [Servo](./zj_humanoid_types.md#Servo)
 - demos
 #### /clear_params
 - description
@@ -563,7 +563,7 @@
 - type
   - Service
 - msg_type
-  - Servo
+  - [Servo](./zj_humanoid_types.md#Servo)
 - demos
 ### /servol
 #### /left_arm
@@ -596,7 +596,7 @@
 - type
   - Service
 - msg_type
-  - Servo
+  - [Servo](./zj_humanoid_types.md#Servo)
 - demos
 #### /clear_params
 - description
@@ -604,7 +604,7 @@
 - type
   - Service
 - msg_type
-  - Servo
+  - [Servo](./zj_humanoid_types.md#Servo)
 - demos
 ### /movej
 #### /left_arm
@@ -613,7 +613,7 @@
 - type
   - Service
 - msg_type
-  - MoveJ
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)
 - demos
 #### /right_arm
 - description
@@ -621,7 +621,7 @@
 - type
   - Service
 - msg_type
-  - MoveJ
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)
 - demos
 #### /neck
 - description
@@ -629,7 +629,7 @@
 - type
   - Service
 - msg_type
-  - MoveJ
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)
 - demos
 #### /waist
 - description
@@ -637,7 +637,7 @@
 - type
   - Service
 - msg_type
-  - MoveJ
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)
 - demos
 #### /lift
 - description
@@ -645,7 +645,7 @@
 - type
   - Service
 - msg_type
-  - MoveJ
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)
 - demos
 #### /whole_body
 - description
@@ -653,7 +653,7 @@
 - type
   - Service
 - msg_type
-  - MoveJ
+  - [MoveJ](./zj_humanoid_types.md#MoveJ)
 - demos
 ### /movej_by_pose
 #### /left_arm
@@ -662,21 +662,24 @@
 - type
   - Service
 - msg_type
-  - MoveJByPose
+  - [MoveJByPose](./zj_humanoid_types.md#MoveJByPose)
+- demos
 #### /right_arm
 - description
   - 关节轨迹点运动(通过位姿)
 - type
   - Service
 - msg_type
-  - MoveJByPose
+  - [MoveJByPose](./zj_humanoid_types.md#MoveJByPose)
+- demos
 #### /dual_arm
 - description
   - 关节轨迹点运动(通过位姿)
 - type
   - Service
 - msg_type
-  - MoveJByPose
+  - [MoveJByPose](./zj_humanoid_types.md#MoveJByPose)
+- demos
 ### /movej_by_path
 #### /left_arm
 - description
@@ -684,28 +687,32 @@
 - type
   - Service
 - msg_type
-  - MoveJByPath 
+  - [MoveJByPath](./zj_humanoid_types.md#MoveJByPath)
+- demos
 #### /right_arm
 - description
   - 关节路径轨迹运动
 - type
   - Service
 - msg_type
-  - MoveJByPath 
+  - [MoveJByPath](./zj_humanoid_types.md#MoveJByPath)
+- demos
 #### /dual_arm
 - description
   - 关节路径轨迹运动
 - type
   - Service
 - msg_type
-  - MoveJByPath 
+  - [MoveJByPath](./zj_humanoid_types.md#MoveJByPath)
+- demos
 #### /whole_body
 - description
   - 关节路径轨迹运动
 - type
   - Service
 - msg_type
-  - MoveJByPath 
+  - [MoveJByPath](./zj_humanoid_types.md#MoveJByPath)
+- demos
 ### /movel
 #### /left_arm
 - description
@@ -713,21 +720,24 @@
 - type
   - Service
 - msg_type
-  - MoveL
+  - [MoveL](./zj_humanoid_types.md#MoveL)
+- demos
 #### /right_arm
 - description
   - 直线轨迹点运动
 - type
   - Service
 - srv
-  - [MoveL](./zj_humanoid_types.md#MoveL)
+  - MoveL
+- demos
 #### /dual_arm
 - description
   - 直线轨迹点运动
 - type
   - Service
 - msg_type
-  - MoveL
+  - [MoveL](./zj_humanoid_types.md#MoveL)
+- demos
 ### /movel_by_path
 #### /left_arm
 - description
@@ -735,21 +745,24 @@
 - type
   - Service
 - msg_type
-  - MoveLByPath
+  - [MoveLByPath](./zj_humanoid_types.md#MoveLByPath)
+- demos
 #### /right_arm
 - description
   - 直线路径轨迹运动
 - type
   - Service
 - msg_type
-  - MoveLByPath
+  - [MoveLByPath](./zj_humanoid_types.md#MoveLByPath)
+- demos
 #### /dual_arm
 - description
   - 直线路径轨迹运动
 - type
   - Service
 - msg_type
-  - MoveLByPath
+  - [MoveLByPath](./zj_humanoid_types.md#MoveLByPath)
+- demos
 ### /IK
 #### /left_arm
 - description
@@ -757,14 +770,16 @@
 - type
   - Service
 - msg_type
-  - FK
+  - [FK](./zj_humanoid_types.md#FK)
+- demos
 #### /right_arm
 - description
   - 正运动学求解
 - type
   - Service
 - msg_type
-  - FK
+  - [FK](./zj_humanoid_types.md#FK)
+- demos
 ### /FK
 #### /left_arm
 - description
@@ -772,14 +787,15 @@
 - type
   - Service
 - msg_type
-  - IK
+  - [IK](./zj_humanoid_types.md#IK)
 #### /right_arm
 - description
   - 正运动学接口
 - type
   - Service
 - msg_type
-  - IK
+  - [IK](./zj_humanoid_types.md#IK)
+- demos
 ## /hand
 ### /hand_joint_states
 - description
@@ -793,6 +809,7 @@
 - agent
   - 当前左手食指的角度是多少
     - 应回复0-80度之间
+- demos
 ### /wrist_force_6d
 #### /left_hand
 - description
@@ -806,6 +823,7 @@
 - agent
   - 当前左手腕部的检测到多少力
     - 应回复0牛顿
+- demos
 #### /right_hand
 - description
   - 左手腕部6维力传感器值
@@ -818,6 +836,7 @@
 - agent
   - 当前右手腕部的检测到多少力
     - 应回复0牛顿
+- demos
 ### /finger_pressures
 - description
   - 手指压力传感器状态值
@@ -830,6 +849,7 @@
 - agent
   - 当前左手食指的检测到多少力
     - 应回复0牛顿
+- demos
 ### /gesture_switch
 #### /left_hand
 - description
@@ -893,7 +913,7 @@
 - type
   - Service
 - msg_type
-  - software_version, hardware_verion
+  - [software_version, hardware_verion](./zj_humanoid_types.md#software_version, hardware_verion)
 - demos
 - agent
   - 查询当前灵巧手子系统的版本号
@@ -908,6 +928,7 @@
   - geometry_msgs/Twist
 - hz
   - 10
+- demos
 #### /web
 - description
   - 网络控制行走
@@ -917,6 +938,7 @@
   - geometry_msgs/Twist
 - hz
   - 10
+- demos
 #### /calib
 - description
   - 导航算法控制行走
@@ -926,24 +948,28 @@
   - geometry_msgs/Twist
 - hz
   - 10
+- demos
 ### /set_stand
 - description
   - 站立姿态初始化
 - type
   - Topic/Subscribe
 - msg_type
+- demos
 ### /set_lie
 - description
   - 下肢泄力
 - type
   - Topic/Subscribe
 - msg_type
+- demos
 ### /start_move
 - description
   - 开启运动模式
 - type
   - Topic/Subscribe
 - msg_type
+- demos
 ### /body_imu
 - description
   - 腰部imu值
@@ -953,19 +979,21 @@
   - sensor_msgs/JointState
 - hz
   - 100
+- demos
 ### /uplimb_occupation
 - description
   - 上肢控制请求
 - type
   - Service
 - msg_type
+- demos
 ### /versions
 - description
   - 上肢模块版本号信息
 - type
   - Service
 - msg_type
-  - software_version, hardware_verion
+  - [software_version, hardware_verion](./zj_humanoid_types.md#software_version, hardware_verion)
 - demos
 ### /debug_info
 - description
@@ -975,6 +1003,7 @@
 - msg_type
 - hz
   - 1
+- demos
 ## /sensor
 ### /CAM_A
 #### /camera_info
@@ -983,7 +1012,7 @@
 - type
   - Service
 - msg_type
-  - CameraInfo
+  - [CameraInfo](./zj_humanoid_types.md#CameraInfo)
 - demos
 - agent
   - 相机A的分辨率是多少
@@ -1000,6 +1029,7 @@
 - agent
   - 相机A的目前帧率是多少
     - 回复应接近16
+- demos
 #### /compressed
 - description
   - 左眼相机的JPG图像数据
@@ -1009,6 +1039,7 @@
   - sensor_msgs/CompressedImage
 - hz
   - 16
+- demos
 ### /CAM_B
 #### /camera_info
 - description
@@ -1016,7 +1047,7 @@
 - type
   - Service
 - msg_type
-  - CameraInfo
+  - [CameraInfo](./zj_humanoid_types.md#CameraInfo)
 - demos
 - agent
   - 相机B的分辨率是多少
@@ -1033,6 +1064,7 @@
 - agent
   - 相机B的目前帧率是多少
     - 回复应接近16
+- demos
 #### /compressed
 - description
   - 右眼相机的JPG图像数据
@@ -1042,6 +1074,7 @@
   - sensor_msgs/CompressedImage
 - hz
   - 16
+- demos
 ### /CAM_C
 #### /camera_info
 - description
@@ -1049,7 +1082,7 @@
 - type
   - Service
 - msg_type
-  - CameraInfo
+  - [CameraInfo](./zj_humanoid_types.md#CameraInfo)
 - demos
 - agent
   - 相机C的目前帧率是多少
@@ -1066,6 +1099,7 @@
 - agent
   - 相机C的目前帧率是多少
     - 回复应接近16
+- demos
 #### /compressed
 - description
   - 右侧太阳穴相机C的JPG图像数据
@@ -1075,6 +1109,7 @@
   - sensor_msgs/CompressedImage
 - hz
   - 16
+- demos
 ### /CAM_D
 #### /camera_info
 - description
@@ -1082,7 +1117,7 @@
 - type
   - Service
 - msg_type
-  - CameraInfo
+  - [CameraInfo](./zj_humanoid_types.md#CameraInfo)
 - demos
 - agent
   - 相机D的目前帧率是多少
@@ -1099,6 +1134,7 @@
 - agent
   - 相机D的目前帧率是多少
     - 回复应接近16
+- demos
 #### /compressed
 - description
   - 左侧太阳穴相机D的JPG图像格式
@@ -1108,6 +1144,7 @@
   - sensor_msgs/CompressedImage
 - hz
   - 16
+- demos
 ### /head_imu
 - description
   - 头部相机的IMU数据
@@ -1120,6 +1157,7 @@
 - agent
   - 头部IMU的目前帧率是多少
     - 回复应接近100
+- demos
 ### /realsense_up
 #### /aligned_depth_to_color
 ##### /camera_info
@@ -1131,6 +1169,7 @@
   - sensor_msgs/CameraInfo
 - hz
   - 30
+- demos
 ##### /image_raw
 - description
   - 胸部深度相机的RGB图像源数据
@@ -1140,6 +1179,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 ##### /image_raw
 ###### /compressed
 - description
@@ -1150,6 +1190,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 #### /color
 ##### /camera_info
 - description
@@ -1160,6 +1201,7 @@
   - sensor_msgs/CameraInfo
 - hz
   - 30
+- demos
 ##### /image_raw
 - description
   - 胸部深度相机的RGB图像源数据
@@ -1178,6 +1220,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 #### /depth
 ##### /camera_info
 - description
@@ -1188,6 +1231,7 @@
   - sensor_msgs/CameraInfo
 - hz
   - 30
+- demos
 ##### /image_raw
 - description
   - 胸部深度相机的RGB图像源数据
@@ -1206,6 +1250,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 ### /realsense_down
 #### /aligned_depth_to_color
 ##### /camera_info
@@ -1217,6 +1262,7 @@
   - sensor_msgs/CameraInfo
 - hz
   - 30
+- demos
 ##### /image_raw
 - description
   - 胸部深度相机的RGB图像源数据
@@ -1226,6 +1272,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 ##### /image_raw
 ###### /compressed
 - description
@@ -1236,6 +1283,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 #### /color
 ##### /camera_info
 - description
@@ -1246,6 +1294,7 @@
   - sensor_msgs/CameraInfo
 - hz
   - 30
+- demos
 ##### /image_raw
 - description
   - 胸部深度相机的RGB图像源数据
@@ -1255,6 +1304,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 ###### /compressed
 - description
   - 胸部深度相机的RGB图像JPG格式
@@ -1264,6 +1314,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 #### /depth
 ##### /camera_info
 - description
@@ -1274,6 +1325,7 @@
   - sensor_msgs/CameraInfo
 - hz
   - 30
+- demos
 ##### /image_raw
 - description
   - 胸部深度相机的RGB图像源数据
@@ -1283,6 +1335,7 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 ###### /compressed
 - description
   - 胸部深度相机的RGB图像JPG格式
@@ -1292,14 +1345,15 @@
   - sensor_msgs/Image
 - hz
   - 30
+- demos
 ## /manipulate
-### /naviai_manip_update_scene_service
+### /scene_update
 - description
   - 机器人场景更新,基于二维码，需要场景中有二维码
 - type
   - Service
 - msg_type
-  - SceneUpdate
+  - [SceneUpdate](./zj_humanoid_types.md#SceneUpdate)
 - demos
   - naviai_manip_scene_update_client.py
 - agent
@@ -1310,18 +1364,18 @@
 - type
   - Service
 - msg_type
-  - GetTrajectory
+  - [GetTrajectory](./zj_humanoid_types.md#GetTrajectory)
 - demos
   - trajectory_plan_client.py
 - agent
   - 示教模式下记录各个关节数据，据此生成完整的执行轨迹
-### /naviai_manip_motion_plan_service
+### /pose_space_trajectory_planner
 - description
   - 末端空间轨迹规划
 - type
   - Service
 - msg_type
-  - MotionPlan
+  - [MotionPlan](./zj_humanoid_types.md#MotionPlan)
 - demos
   - naviai_manip_motion_plan_client.py
 - agent
@@ -1332,25 +1386,27 @@
 - type
   - Service
 - msg_type
-  - CameraCalibration
+  - [CameraCalibration](./zj_humanoid_types.md#CameraCalibration)
 - agent
   - 自动相机内外参标定，外参标定时机器人会执行一段轨迹，拍摄不同角度的照片，从而计算外参
+- demos
 ### /grasp_teach_service
 - description
   - 视觉抓取示教服务
 - type
   - Service
 - msg_type
-  - GraspTeach
+  - [GraspTeach](./zj_humanoid_types.md#GraspTeach)
 - agent
   - 视觉示教抓取，让机器人知道该从什么方位抓取物品
+- demos
 ### /pose_estimation_service
 - description
   - 获取目标物体位姿
 - type
   - Service
 - msg_type
-  - PoseEst
+  - [PoseEst](./zj_humanoid_types.md#PoseEst)
 - demos
   - pose_estimator_client.py
 - agent
@@ -1361,7 +1417,7 @@
 - type
   - Service
 - msg_type
-  - InstSeg
+  - [InstSeg](./zj_humanoid_types.md#InstSeg)
 - demos
   - seg_pre_service_client.py
 - agent
@@ -1372,7 +1428,7 @@
 - type
   - Service
 - msg_type
-  - ExecutePickTask
+  - [ExecutePickTask](./zj_humanoid_types.md#ExecutePickTask)
 - demos
   - rosservice call /execute_pick_task "target_label: chips_can_orin"
 - agent
@@ -1396,7 +1452,7 @@
 - type
   - Topic/Subscriber
 - msg_type
-  - LocalMap
+  - [LocalMap](./zj_humanoid_types.md#LocalMap)
 - hz
   - 10
 - demos
@@ -1407,7 +1463,7 @@
 - type
   - Topic/Publish
 - msg_type
-  - TakInfo
+  - [TakInfo](./zj_humanoid_types.md#TakInfo)
 - hz
   - 1
 - demos
@@ -1418,12 +1474,12 @@
 - type
   - Topic/Subscriber
 - msg_type
-  - NavigationStatus
+  - [NavigationStatus](./zj_humanoid_types.md#NavigationStatus)
 - hz
   - 20
 - demos
   - rostopic echo /navigation_status
-### /map
+### /globalmap
 - description
   - 全局地图信息
 - type
@@ -1433,9 +1489,7 @@
 - hz
   - 非实时
 - demos
-  - rostopic echo /map
-### /point_cloud_360
-- description
+  - rostopic echo /globalmap
 ## /audio
 ### /microphone
 #### /get_devices_list
@@ -1444,8 +1498,8 @@
 - type
   - Service
 - msg_type
-  - GetDeviceList
-- demo
+  - [GetDeviceList](./zj_humanoid_types.md#GetDeviceList)
+- demos
 - agent
   - 检查当前有多少个麦克风设备
     - 回复数量应大于1
@@ -1455,8 +1509,8 @@
 - type
   - Service
 - msg_type
-  - SetDevice
-- demo
+  - [SetDevice](./zj_humanoid_types.md#SetDevice)
+- demos
 - agent
   - 选择第一个麦克风
 #### /audio_data
@@ -1465,26 +1519,27 @@
 - msg_type: 
   - AudioDate
 - hz
+- demos
 ### /speaker
 #### /get_devices_list
 - description
   - 获取喇叭设备列表
 - type
   - Service
-- demo
+- demos
 - agent
   - 检查当前有多少个喇叭设备
     - 回复数量应大于1
 - msg_type
-  - GetDeviceList
+  - [GetDeviceList](./zj_humanoid_types.md#GetDeviceList)
 #### /select_device
 - description
   - 选中生效喇叭
 - type
   - Service
 - msg_type
-  - SetDevice
-- demo
+  - [SetDevice](./zj_humanoid_types.md#SetDevice)
+- demos
 - agent
   - 选择第一个喇叭
 #### /get_volume
@@ -1493,10 +1548,11 @@
 - type
   - Service
 - msg_type
-  - GetVolume
+  - [GetVolume](./zj_humanoid_types.md#GetVolume)
 - agent
   - 获取当前的系统音量大小
     - 应回复音量0~100
+- demos
 #### /set_volume
 - description
   - 设置当前音量大小
@@ -1505,27 +1561,30 @@
 - agent
   - 设置音量为50
 - msg_type
-  - SetVolume
+  - [SetVolume](./zj_humanoid_types.md#SetVolume)
+- demos
 ### /listen
 - description
   - 倾听服务
 - type
   - Service
 - msg_type
-  - Listen
+  - [Listen](./zj_humanoid_types.md#Listen)
 - agent
   - 开始倾听
+- demos
 ### /listen_state
 - description
   - 唤醒倾听状态发布
 - type
   - Topic/Publish
 - msg_type
-  - ListenInfo
+  - [ListenInfo](./zj_humanoid_types.md#ListenInfo)
 - hz
   - 100hz
 - agent
   - 当前是否为倾听状态
+- demos
 ### /asr_text
 - description
   - 语音转文字服务
@@ -1534,16 +1593,17 @@
 - msg_type
 - agent
   - 当前机器人听到了什么
+- demos
 ### /tts_service
 - description
   - 文字转语音服务
 - type
   - Service
 - msg_type
-  - TTS
+  - [TTS](./zj_humanoid_types.md#TTS)
 - agent
   - 请让机器人说“hello world”
-- demo
+- demos
 ### /media_play
 - description
   - 音频文件播放
@@ -1551,8 +1611,8 @@
 - type
   - Service
 - msg_type
-  - MediaPlay
-- demo
+  - [MediaPlay](./zj_humanoid_types.md#MediaPlay)
+- demos
 ### /LLM_chat
 - description
   - LLM智能对话服务
@@ -1560,4 +1620,4 @@
 - type
   - Service
 - msg_type
-- demo
+- demos

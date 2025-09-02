@@ -44,42 +44,51 @@ const initRosConnection = async () => {
     // 标志变量，指示是否已经获取到话题和服务列表
     window.rosDataLoaded = false
     
-    // 获取机器人上所有的话题列表
-    const topicsClient = new ROSLIB.Service({
-      ros: rosRef,
-      name: '/rosapi/topics',
-      serviceType: 'rosapi/Topics'
-    })
-    
-    const topicsRequest = new ROSLIB.ServiceRequest({})
-    topicsClient.callService(topicsRequest, (result) => {
-      //  console.log('机器人上所有的话题列表:', result.topics)
-        window.availableTopics = result.topics || []
-      }, (error) => {
-        console.error('获取话题列表失败:', error)
+    // 并行获取话题和服务列表
+    const [topicsResult, servicesResult] = await Promise.all([
+      new Promise((resolve, reject) => {
+        const topicsClient = new ROSLIB.Service({
+          ros: rosRef,
+          name: '/rosapi/topics',
+          serviceType: 'rosapi/Topics'
+        })
+        topicsClient.callService(
+          new ROSLIB.ServiceRequest({}),
+          resolve,
+          reject
+        )
+      }),
+      new Promise((resolve, reject) => {
+        const servicesClient = new ROSLIB.Service({
+          ros: rosRef,
+          name: '/rosapi/services',
+          serviceType: 'rosapi/Services'
+        })
+        servicesClient.callService(
+          new ROSLIB.ServiceRequest({}),
+          resolve,
+          reject
+        )
       })
-      
-      // 获取机器人上所有的服务列表
-      const servicesClient = new ROSLIB.Service({
-        ros: rosRef,
-        name: '/rosapi/services',
-        serviceType: 'rosapi/Services'
-      })
-      
-      const servicesRequest = new ROSLIB.ServiceRequest({})
-      servicesClient.callService(servicesRequest, (result) => {
-      //  console.log('机器人上所有的服务列表:', result.services)
-        window.availableServices = result.services || []
-      // 设置标志变量为 true，表示已经获取到话题和服务列表
-      window.rosDataLoaded = true
-      // 重新渲染 markmap 以应用 ROS 实体
-      if (mm && props.content) {
-        renderMarkmap()
-      }
-    }, (error) => {
-      console.error('获取服务列表失败:', error)
-    })
+    ])
 
+    // 处理结果
+    window.availableTopics = (topicsResult.topics || [])
+          .filter(topic => topic.startsWith('/zj_humanoid'))
+    console.log('机器人上所有的话题列表:', window.availableTopics)
+
+
+    window.availableServices = (servicesResult.services || [])
+          .filter(service => service.startsWith('/zj_humanoid'))
+    console.log('机器人上所有的服务列表:', window.availableServices)
+
+    // 设置标志变量为 true，表示已经获取到话题和服务列表
+    window.rosDataLoaded = true
+    
+    // 重新渲染 markmap 以应用 ROS 实体
+    if (mm && props.content) {
+      renderMarkmap()
+    }
   } catch (error) {
     console.error('ROS 连接初始化失败:', error)
   }
@@ -148,7 +157,7 @@ const addButtonFunctionality = (root) => {
       // 找到msg_type
       const msgTypeNode = parent.children?.find(child => child.content === 'msg_type')
       if (msgTypeNode && msgTypeNode.children) {
-        // 计算二级名
+        // 计算msg_type的名称
         const path = getNodePath(root, parent)
         const secondLevelName = path.length >= 2 ? path[1].content : 'unknown'
         const childNames = msgTypeNode.children.map(c => c.content)
@@ -186,6 +195,7 @@ const addButtonFunctionality = (root) => {
             } else {
               // 为可用的服务类型的 demosNode 设置蓝色
               demosNode.payload.color = '#3498db'
+              console.log(`发现服务 ${toppicName}`)
             }
           } else {
             demosNode.payload = demosNode.payload || {}
@@ -203,8 +213,10 @@ const addButtonFunctionality = (root) => {
             } else {
               // 为可用的主题类型的 demosNode 设置绿色
               demosNode.payload.color = '#2ecc71'
+              console.log(`发现话题 ${toppicName}`)
             }
           }
+          applyNodeColors(demosNode);
           // console.log(demosNode.payload)
         } catch (e) {
           console.warn('Create ROS entity failed:', e)
@@ -300,7 +312,6 @@ const renderMarkmap = () => {
     // 初次高度计算
     updateSvgHeight(root, svgRef.value, props.minHeight)
     mm.fit()
-    applyNodeColors(root);
 
     mm.svg.on('click', () => {
       requestAnimationFrame(() => {

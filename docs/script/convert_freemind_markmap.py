@@ -30,8 +30,7 @@ def traverse(node, lines, slash_depth=0, list_depth=0, parent_was_heading=False,
     indent = "  " * list_depth
     lines.append(f"{indent}- {text}")
 
-    # >>> 特殊处理：当节点名是 msg 或 srv 时，按子节点内容决定输出形式
-    if text in ("msg", "srv"):
+    if text == "msg_type":
         sub_indent = "  " * (list_depth + 1)
         root_pkg = ancestors[0] if len(ancestors) >= 1 else "unknown"
         for child in node.findall("node"):
@@ -45,9 +44,7 @@ def traverse(node, lines, slash_depth=0, list_depth=0, parent_was_heading=False,
             else:
                 # 不带斜杠：转为 Markdown 链接到 {root_pkg}_types.md
                 lines.append(f"{sub_indent}- [{child_text}](./{root_pkg}_types.md#{child_text})")
-        # 已手动处理其子节点，这里不再递归这些子节点
         return
-    # <<< 结束特殊处理
 
     # 常规子节点递归
     for child in node.findall("node"):
