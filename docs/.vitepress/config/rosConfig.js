@@ -4,13 +4,22 @@
  */
 
 // 默认配置
-// 根据当前页面协议确定WebSocket协议
-const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+// 默认配置
 const defaultConfig = {
-  url: `${protocol}//172.16.11.238:9090${protocol === 'wss:' ? '/wss' : ''}`,
+  // 在构建时使用默认ws协议，在客户端运行时根据页面协议动态调整
+  url: 'ws://172.16.11.238:9090',
   reconnectInterval: 3000, // 重连间隔时间(毫秒)
   maxReconnectAttempts: 10, // 最大重连尝试次数
-  timeout: 5000, // 连接超时时间(毫秒)
+  timeout: 5000, // 连接超时时间(毫秒),
+
+  // 动态获取URL的方法，在客户端调用
+  getDynamicUrl: function() {
+    if (typeof window !== 'undefined') {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      return `${protocol}//172.16.11.238:9090${protocol === 'wss:' ? '/wss' : ''}`;
+    }
+    return this.url; // 服务器端返回默认URL
+  }
 };
 
 // 可以根据环境变量或外部配置覆盖默认配置
