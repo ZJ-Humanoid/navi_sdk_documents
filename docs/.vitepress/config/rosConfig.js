@@ -17,7 +17,7 @@ const defaultConfig = {
     if (typeof window !== 'undefined') {
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       console.log('protocol', protocol);
-      return `${protocol}//172.16.11.238:9090${protocol === 'wss:' ? '/wss' : ''}`;
+      return `${protocol}//172.16.11.238${protocol === 'wss:' ? '/wss' : ':9090'}`;
     }
     return this.url; // 服务器端返回默认URL
   }
