@@ -4,8 +4,10 @@
  */
 
 // 默认配置
+// 根据当前页面协议确定WebSocket协议
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
 const defaultConfig = {
-  url: 'ws://172.16.11.238:9090',
+  url: `${protocol}//172.16.11.238:9090${protocol === 'wss:' ? '/wss' : ''}`,
   reconnectInterval: 3000, // 重连间隔时间(毫秒)
   maxReconnectAttempts: 10, // 最大重连尝试次数
   timeout: 5000, // 连接超时时间(毫秒)
