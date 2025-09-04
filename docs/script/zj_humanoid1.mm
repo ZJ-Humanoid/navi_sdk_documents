@@ -38,7 +38,9 @@
             <node TEXT="std_srvs/Trigger" ID="73d7072a9814f9e0c1e8f5d327ec13dd" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="ee1541a3926aaff1148aec79ed69354e" STYLE="fork">
-            <node TEXT="stop_robot" ID="2fdad30410d3960ac3f728d914e8f806" STYLE="fork"/>
+            <node TEXT="stop_robot" ID="2fdad30410d3960ac3f728d914e8f806" STYLE="fork">
+              <node TEXT="" ID="df464e1519ca318af4ace67aad01db87" STYLE="fork"/>
+            </node>
           </node>
           <node TEXT="agent" ID="9416f14721bd07c6c40d3066f7de0599" STYLE="fork">
             <node TEXT="将机器人状态设置为stop" ID="9515075e5284ef253449056fcca4f242" STYLE="fork">
@@ -57,7 +59,9 @@
             <node TEXT="std_srvs/Trigger" ID="8a1dd54ef55214f123c5cd9acacccbab" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="d55c563b1b84eedc1557ad16bf3de401" STYLE="fork">
-            <node TEXT="start_robot" ID="7ce3348483aae4a587dbd1e05488b894" STYLE="fork"/>
+            <node TEXT="start_robot" ID="7ce3348483aae4a587dbd1e05488b894" STYLE="fork">
+              <node TEXT="" ID="0d308aa370765e6d5c95bd31a84359e7" STYLE="fork"/>
+            </node>
           </node>
           <node TEXT="agent" ID="93311d38d61187cf21ad6bd88200ce94" STYLE="fork">
             <node TEXT="将机器人状态设置为RUN" ID="786bda33e35173fdb6396f48ae250a58" STYLE="fork">
@@ -76,7 +80,9 @@
             <node TEXT="std_srvs/Trigger" ID="b0635c660e33fa33ed4ffad7adf9f49c" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="c992049d46b3cb0a0db3276898e0956c" STYLE="fork">
-            <node TEXT="restart_robot" ID="2b23cc1da91d00f068b24c27903e4e12" STYLE="fork"/>
+            <node TEXT="restart_robot" ID="2b23cc1da91d00f068b24c27903e4e12" STYLE="fork">
+              <node TEXT="" ID="3041c9c0a47191de7b6dd3a699b42b83" STYLE="fork"/>
+            </node>
           </node>
           <node TEXT="agent" ID="6d65eb8e8fc41ae18df51ac574543699" STYLE="fork">
             <node TEXT="将机器人状态机重启" ID="996bda21b6ae76da6fdce532d90b775b" STYLE="fork">
@@ -522,7 +528,9 @@
             <node TEXT="std_srvs/Trigger" ID="13a32f05d843e79afde657fb8fdfae97" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="1253a2c132aeae5b313f00eeb9cca999" STYLE="fork">
-            <node TEXT="left_arm_go_home" ID="a9e5ab53334d707790c7ac00f351a00c" STYLE="fork"/>
+            <node TEXT="left_arm_go_home" ID="a9e5ab53334d707790c7ac00f351a00c" STYLE="fork">
+              <node TEXT="" ID="a4109e0b251682e78d917bd1642a01a7" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/right_arm" ID="492c004b7758e78cad38af2314f03d8a" STYLE="fork">
@@ -536,7 +544,9 @@
             <node TEXT="std_srvs/Trigger" ID="2856cf884f99e75376bdb59cc68583df" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="e13a6f9a0c1b753a3cf9dbcfed8087a9" STYLE="fork">
-            <node TEXT="right_arm_go_home" ID="43ab6a56878ea239115a4100da128e1c" STYLE="fork"/>
+            <node TEXT="right_arm_go_home" ID="43ab6a56878ea239115a4100da128e1c" STYLE="fork">
+              <node TEXT="" ID="0266b92d318a0da6a302a909c3a7e867" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/dual_arm" ID="36aa39803ba343b8d35971ae6ecbce0a" STYLE="fork">
@@ -550,7 +560,9 @@
             <node TEXT="std_srvs/Trigger" ID="9ead1a1ccd9a0313186529c40cd0e527" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="7dce4650cc01e1c7e82b702da97d2186" STYLE="fork">
-            <node TEXT="dual_arm_go_home" ID="6f0c1d564518763730683783851940fe" STYLE="fork"/>
+            <node TEXT="dual_arm_go_home" ID="6f0c1d564518763730683783851940fe" STYLE="fork">
+              <node TEXT="" ID="c6631a875d4915294b4d7b6dc8becf50" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/whole_body" ID="037dae4b528a0f071c285c3296c2ec7e" STYLE="fork">
@@ -564,7 +576,9 @@
             <node TEXT="std_srvs/Trigger" ID="c53be210e403a8eff4be5a95cf3a7fba" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="32c200ddc78a808e56ae325237b9d907" STYLE="fork">
-            <node TEXT="whole_go_home" ID="8ed993d77bd05de6d321ff99057ca8d2" STYLE="fork"/>
+            <node TEXT="whole_go_home" ID="8ed993d77bd05de6d321ff99057ca8d2" STYLE="fork">
+              <node TEXT="" ID="1a3354ad09d8abd246d7480a80e72d1a" STYLE="fork"/>
+            </node>
           </node>
         </node>
       </node>
@@ -580,7 +594,9 @@
             <node TEXT="ArmType" ID="170671b69d973f8c7a88ee700f2ba7de" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="a885d3dc85d54f04de348c1247a364dc" STYLE="fork">
-            <node TEXT="left_arm_teach_mode" ID="99cd7748d57258dd0eaa1d839e85b3cf" STYLE="fork"/>
+            <node TEXT="left_arm_teach_mode" ID="99cd7748d57258dd0eaa1d839e85b3cf" STYLE="fork">
+              <node TEXT="" ID="42102efd7ce8ba483f894fcf3e5dd798" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/exit" ID="a57e728356621d7bd4b59deeb46fc57c" STYLE="fork">
@@ -594,7 +610,9 @@
             <node TEXT="ArmType" ID="470c15c326fccda8364bfadfecab94ad" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="9c8f23ad6b1d2ca150141ce1a66d29b3" STYLE="fork">
-            <node TEXT="exit_left_arm_teach_mode" ID="be87ebf003faf4559241aa14d461df29" STYLE="fork"/>
+            <node TEXT="exit_left_arm_teach_mode" ID="be87ebf003faf4559241aa14d461df29" STYLE="fork">
+              <node TEXT="" ID="bc630a72c268b06a7842a07d7b8b27c8" STYLE="fork"/>
+            </node>
           </node>
         </node>
       </node>
@@ -612,7 +630,9 @@
           <node TEXT="停止运动" ID="7bbda04a51152029491a7613475d9018" STYLE="fork"/>
         </node>
         <node TEXT="demos" ID="c66b3a80e009724d599e64b541cacaa4" STYLE="fork">
-          <node TEXT="stop_moving" ID="ca7b3b50b10045c4d55246c6bf3ecf9c" STYLE="fork"/>
+          <node TEXT="stop_moving" ID="ca7b3b50b10045c4d55246c6bf3ecf9c" STYLE="fork">
+            <node TEXT="" ID="9516af3afa7c4fa444182c09f3defd3d" STYLE="fork"/>
+          </node>
         </node>
       </node>
       <node TEXT="/tcp_pose" ID="c16bffd21de78bdc197aeea559dd3ad8" STYLE="fork">
@@ -630,7 +650,9 @@
             <node TEXT="100" ID="301455a2a6d642bc3f8f8d8a0a9c611e" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="65da9668cac04354722c14bab8fccdae" STYLE="fork">
-            <node TEXT="get_left_arm_pose" ID="5f22ca7109975333c73a77ecfad314be" STYLE="fork"/>
+            <node TEXT="get_left_arm_pose" ID="5f22ca7109975333c73a77ecfad314be" STYLE="fork">
+              <node TEXT="" ID="72445237e91bffb928645eefab8f8a1b" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="right_arm" ID="38b2b02945938dfec7ce7debddb0bce2" STYLE="fork">
@@ -647,7 +669,9 @@
             <node TEXT="100" ID="dad680fbd878c58d84aa7f587a208f2d" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="da395f0220a03ceb4cb4ae4c7452ad59" STYLE="fork">
-            <node TEXT="get_right_arm_pose" ID="92a9fb67dbd1402148343668e64fa60f" STYLE="fork"/>
+            <node TEXT="get_right_arm_pose" ID="92a9fb67dbd1402148343668e64fa60f" STYLE="fork">
+              <node TEXT="" ID="8e49881c07b09fada4221f77c536817d" STYLE="fork"/>
+            </node>
           </node>
         </node>
       </node>
@@ -665,7 +689,9 @@
           <node TEXT="100" ID="8dd5b64d8187edc9a01ebd124bfa1202" STYLE="fork"/>
         </node>
         <node TEXT="demos" ID="d7e767415ec5530ef23042b4267a2fc4" STYLE="fork">
-          <node TEXT="get_tcp_speeds" ID="e3df5a7dcddd08364fd8db2df8fa1448" STYLE="fork"/>
+          <node TEXT="get_tcp_speeds" ID="e3df5a7dcddd08364fd8db2df8fa1448" STYLE="fork">
+            <node TEXT="" ID="a51f2e5a05052925f7963b63acc98410" STYLE="fork"/>
+          </node>
         </node>
       </node>
       <node TEXT="/speedj" ID="54a5abe1ebb59ce7398f60da42fcc5c5" STYLE="fork">
@@ -686,7 +712,9 @@
             <node TEXT="left_arm_shoulder_pitch_up" ID="21b216cf3567bf320c5435d1f7b724cb" STYLE="fork">
               <node TEXT="" ID="9d6fac3c79ba326417b9d9fb26450522" STYLE="fork"/>
             </node>
-            <node TEXT="left_arm_shoulder_pitch_down" ID="35984b50e427ae15f60579cb28bd652a" STYLE="fork"/>
+            <node TEXT="left_arm_shoulder_pitch_down" ID="35984b50e427ae15f60579cb28bd652a" STYLE="fork">
+              <node TEXT="" ID="85e82b85ebfccc8c69a78358e8ddcd53" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/right_arm" ID="d77eb7b1d9b517b8eb902f4c0a4a61b7" STYLE="fork">
@@ -703,8 +731,12 @@
             <node TEXT="10" ID="d5c391b4cec2bccbd099fc1fdbccc74c" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="509142e31baa3562b21c2b9147d192ca" STYLE="fork">
-            <node TEXT="right_arm_shoulder_pitch_up" ID="864d0143caabaf1740612d4f2137103c" STYLE="fork"/>
-            <node TEXT="right_arm_shoulder_pitch_down" ID="6632dbc3b4bd552c387f4ad361157a8f" STYLE="fork"/>
+            <node TEXT="right_arm_shoulder_pitch_up" ID="864d0143caabaf1740612d4f2137103c" STYLE="fork">
+              <node TEXT="" ID="1761bc7f36c9bfb89c0d447327bbd9fa" STYLE="fork"/>
+            </node>
+            <node TEXT="right_arm_shoulder_pitch_down" ID="6632dbc3b4bd552c387f4ad361157a8f" STYLE="fork">
+              <node TEXT="" ID="63d2309a0b0f57c2a8b09f863068a664" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/neck" ID="3f3af7d88e569a9cabfe106d9843ecb1" STYLE="fork">
@@ -721,8 +753,12 @@
             <node TEXT="100" ID="6d873b1577068292cebc5adab6972d69" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="60b2e7f228d63ee6cb7b4af3f14770bb" STYLE="fork">
-            <node TEXT="head_pitch_up" ID="aca4a1a70407d0e13900eeb7aa2d3235" STYLE="fork"/>
-            <node TEXT="head_pitch_down" ID="23db11ff05c923d66ac4649a4c440d58" STYLE="fork"/>
+            <node TEXT="head_pitch_up" ID="aca4a1a70407d0e13900eeb7aa2d3235" STYLE="fork">
+              <node TEXT="" ID="9bd3547a547e1224ca6b08fcaeb23e2b" STYLE="fork"/>
+            </node>
+            <node TEXT="head_pitch_down" ID="23db11ff05c923d66ac4649a4c440d58" STYLE="fork">
+              <node TEXT="" ID="af3adfc22e7ef6d4c0a6d26892edf636" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/waist" ID="d895c7865c0660c62dd721da9b7daebb" STYLE="fork">
@@ -739,8 +775,12 @@
             <node TEXT="100" ID="b8da2fdd703ede7630677145eee04843" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="efcb31f2f8f0eec2754cad61066d9eee" STYLE="fork">
-            <node TEXT="waist_turn_left" ID="3f9ab0c572dc785825f8a7fc6fd41fb1" STYLE="fork"/>
-            <node TEXT="waist_turn_right" ID="837a23a213ddf8f7beb329e142cae440" STYLE="fork"/>
+            <node TEXT="waist_turn_left" ID="3f9ab0c572dc785825f8a7fc6fd41fb1" STYLE="fork">
+              <node TEXT="" ID="ed781fda7c3bc646fd9edb0c67040e00" STYLE="fork"/>
+            </node>
+            <node TEXT="waist_turn_right" ID="837a23a213ddf8f7beb329e142cae440" STYLE="fork">
+              <node TEXT="" ID="d7509e3b1b70b09be56d61c5bc39672d" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/lift" ID="e99e711d27c5c93dcfe22e9d2784c979" STYLE="fork">
@@ -757,8 +797,12 @@
             <node TEXT="100" ID="d0a75c5173001e855c2c18c379e1881b" STYLE="fork"/>
           </node>
           <node TEXT="demos" ID="d06f382300c0b46f89be837570de8d9a" STYLE="fork">
-            <node TEXT="waist_lift_up" ID="c4c77e65cc4200f55551da686d00d2f3" STYLE="fork"/>
-            <node TEXT="waist_lift_down" ID="2be65ff9c3380a98ff6e27d3e66ad225" STYLE="fork"/>
+            <node TEXT="waist_lift_up" ID="c4c77e65cc4200f55551da686d00d2f3" STYLE="fork">
+              <node TEXT="" ID="1cd4f42e943b53fe5a593bba17b61c04" STYLE="fork"/>
+            </node>
+            <node TEXT="waist_lift_down" ID="2be65ff9c3380a98ff6e27d3e66ad225" STYLE="fork">
+              <node TEXT="" ID="a88ba82b91da4b4f986c7e0d8f759b5c" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/whole_body" ID="a3c79db0d7f4152b61a7ce8249cfdfee" STYLE="fork">
@@ -1049,6 +1093,7 @@
           <node TEXT="msg_type" ID="8c8b63ed971371f74dc5b7162c626350" STYLE="fork">
             <node TEXT="MoveJByPose" ID="0b6819cb779530985d5f6146fc76f675" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="d587d16fd23f432c3b471e2bed25a5a5" STYLE="fork"/>
         </node>
         <node TEXT="/right_arm" ID="11ab7902d08559ab172efc8e09bf523a" STYLE="fork">
           <node TEXT="description" ID="7841f155636796f2585ea45536a1f09b" STYLE="fork">
@@ -1060,6 +1105,7 @@
           <node TEXT="msg_type" ID="e805b1b7a43e099d07d1079121074d1c" STYLE="fork">
             <node TEXT="MoveJByPose" ID="a06797bc52d51b3d05fbad69badf8711" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="a3777ed5f71ba2a568720df090155eae" STYLE="fork"/>
         </node>
         <node TEXT="/dual_arm" ID="408e3942e2871a7f1a37595747d94a3c" STYLE="fork">
           <node TEXT="description" ID="10b2e3f301c6790b4678655b44142e0e" STYLE="fork">
@@ -1071,6 +1117,7 @@
           <node TEXT="msg_type" ID="5dd0a9919373581dd8a5e87c7ccc545f" STYLE="fork">
             <node TEXT="MoveJByPose" ID="bd2fbf7419c729c314d2bc244680779f" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="987f6b9b49a7e6aa8f46aa9c0678ccb6" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/movej_by_path" ID="e22688175ead23f087e07215b08b0149" STYLE="fork">
@@ -1084,6 +1131,7 @@
           <node TEXT="msg_type" ID="b34652c4da44960591e9e85daef1eac0" STYLE="fork">
             <node TEXT="MoveJByPath " ID="b5952655363727e854b4c7ede212760f" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="f8c7a4b64d62a6ace1432089b508cf46" STYLE="fork"/>
         </node>
         <node TEXT="/right_arm" ID="972b943d7b9e48f2eba437d4140918d2" STYLE="fork">
           <node TEXT="description" ID="55a76e25deadb23196625718016180dd" STYLE="fork">
@@ -1095,6 +1143,7 @@
           <node TEXT="msg_type" ID="9107da85d3ddf7513b6421bc2c37fbf4" STYLE="fork">
             <node TEXT="MoveJByPath " ID="d1532830709b6e2f779d0c03cb307eeb" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="bacfb37af43447dbab09e263b6347846" STYLE="fork"/>
         </node>
         <node TEXT="/dual_arm" ID="4ec85af0cd71808f050bbfe8d7acab05" STYLE="fork">
           <node TEXT="description" ID="375cdd9ac911d71af2e8288024008fc0" STYLE="fork">
@@ -1106,6 +1155,7 @@
           <node TEXT="msg_type" ID="307d1a0cc2ce45d801bbd0be76712aff" STYLE="fork">
             <node TEXT="MoveJByPath " ID="8c2fa3d741342977e4533f11de718bf3" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="fe1ad8a6c6ce254650a0427ed8989fe6" STYLE="fork"/>
         </node>
         <node TEXT="/whole_body" ID="ffbeea113737bc692e0eb6d736a9d79a" STYLE="fork">
           <node TEXT="description" ID="84945106eafae98633ff0b24f55cc4c8" STYLE="fork">
@@ -1117,6 +1167,7 @@
           <node TEXT="msg_type" ID="921fc731c9de11f294c2da816ce90cc4" STYLE="fork">
             <node TEXT="MoveJByPath " ID="53fcff2b34b4509981f84f7535b39380" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="b421876b287fefa2b5c3dd1404b0f940" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/movel" ID="21546f1b0443912aeaf5a41944b8cc6c" STYLE="fork">
@@ -1130,6 +1181,7 @@
           <node TEXT="msg_type" ID="d11aa3ad1f119ef5cb4929f8e9c13a13" STYLE="fork">
             <node TEXT="MoveL" ID="b40b48b96242d9ffc9f74a14b7fc1186" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="ee470bb29caf068de2e7fd755aa1870a" STYLE="fork"/>
         </node>
         <node TEXT="/right_arm" ID="699e3421d1f186f8eb9b4da3638dbbd5" STYLE="fork">
           <node TEXT="description" ID="ae6db1b44b037d1e2df9f0060fca2eba" STYLE="fork">
@@ -1141,6 +1193,7 @@
           <node TEXT="srv" ID="3d8474ff15b42c09761c558b52505aba" STYLE="fork">
             <node TEXT="MoveL" ID="af76ef7196e1a4ed427bb140953e7124" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="81ab7e3bbddd112eb4bab3701e807518" STYLE="fork"/>
         </node>
         <node TEXT="/dual_arm" ID="62f1513b879110dd08e64b4d992eddf6" STYLE="fork">
           <node TEXT="description" ID="ccafb0b403f216606de54e0b3b883ad3" STYLE="fork">
@@ -1152,6 +1205,7 @@
           <node TEXT="msg_type" ID="6073a7a190fa1ac05bc069dc4986ff19" STYLE="fork">
             <node TEXT="MoveL" ID="0679666653b6a172298a79d0e26cbb2f" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="9448269dc8c9bd07caddcbff21721ebe" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/movel_by_path" ID="37f1be049ba261a28743064a983f60ed" STYLE="fork">
@@ -1165,6 +1219,7 @@
           <node TEXT="msg_type" ID="1c0b2684b38af34d0d4d1548bafd93f9" STYLE="fork">
             <node TEXT="MoveLByPath" ID="a86011a0505bbf52cfe2833e07ffdb29" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="dc09a8587d988a98ba7b5e9c95d61f4e" STYLE="fork"/>
         </node>
         <node TEXT="/right_arm" ID="c89ce08c290928c0adb1b29b9bd67e3e" STYLE="fork">
           <node TEXT="description" ID="bf79968c8b5f2b1b943f5cfba021bc77" STYLE="fork">
@@ -1176,6 +1231,7 @@
           <node TEXT="msg_type" ID="b4df865c351b56832b06d9e8eff7daad" STYLE="fork">
             <node TEXT="MoveLByPath" ID="3ef2c1bcaed7f01508f59e9b4e9eb83d" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="2976c589a0ab47a99b555e4e351da3b0" STYLE="fork"/>
         </node>
         <node TEXT="/dual_arm" ID="fea8b00ee96e1b3f8ae349bf4c673597" STYLE="fork">
           <node TEXT="description" ID="002fc53d05e90aefd07f5243d9f7daf3" STYLE="fork">
@@ -1187,6 +1243,7 @@
           <node TEXT="msg_type" ID="332d9323c258c25ba9ca9165c1b2bc30" STYLE="fork">
             <node TEXT="MoveLByPath" ID="49a6fc272afd00597fbf6c66f876c3ef" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="e3aa9baad475603798df7884a83b33e6" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/IK" ID="ca5ba01569a8c392922f1e59b38fcd07" STYLE="fork">
@@ -1200,6 +1257,7 @@
           <node TEXT="msg_type" ID="ee40aaebee41cbc8d26f25f567ff53f9" STYLE="fork">
             <node TEXT="FK" ID="b1368aff749d95a05b8307f330df8fa7" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="97cd6e2c1ecc0d42e1297f951a3af37a" STYLE="fork"/>
         </node>
         <node TEXT="/right_arm" ID="a8864c3532127c94258f18fa59211e7a" STYLE="fork">
           <node TEXT="description" ID="0eb41c66ba7e1db80bed5f6444bd8ce0" STYLE="fork">
@@ -1211,6 +1269,7 @@
           <node TEXT="msg_type" ID="0f31d09a2b4832762d79487ecdca0939" STYLE="fork">
             <node TEXT="FK" ID="fef770a8b447d969daa7f493158f7c52" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="948c2875d3c0191ec837185777d992bf" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/FK" ID="89769c46e68a40ec3f6ea95da9e5d261" STYLE="fork">
@@ -1235,11 +1294,12 @@
           <node TEXT="msg_type" ID="0521b1aa0de13d91d0a4bc51cf272f1b" STYLE="fork">
             <node TEXT="IK" ID="3813b8b096df1c7d63cf0ab0684b6444" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="0c3713db258e016ec3592b4de028d243" STYLE="fork"/>
         </node>
       </node>
     </node>
     <node TEXT="/hand" ID="3d42ce44223aca29de0165c68d110c43" STYLE="bubble" POSITION="right">
-      <node TEXT="/hand_joint_states" ID="0b5368ceb5074c28d2b1715eea61a371" STYLE="fork">
+      <node TEXT="/joint_states" ID="0b5368ceb5074c28d2b1715eea61a371" STYLE="fork">
         <node TEXT="description" ID="b1ebd4fadf4b58619eaaa34238a3ad72" STYLE="fork">
           <node TEXT="手部关节状态" ID="50204df92435dda949e1efcfa0376556" STYLE="fork"/>
         </node>
@@ -1257,9 +1317,10 @@
             <node TEXT="应回复0-80度之间" ID="f051769010fa7bea24e7d8448adb81da" STYLE="fork"/>
           </node>
         </node>
+        <node TEXT="demos" ID="6c2568ec60f01a28009e840704511eb5" STYLE="fork"/>
       </node>
-      <node TEXT="/wrist_force_6d" ID="27b7bb1bfa15513f40073c11dc1364da" STYLE="fork">
-        <node TEXT="/left_hand" ID="d55383fb55eea1c9ec167dcb13443aef" STYLE="fork">
+      <node TEXT="/wrist_force_sensor" ID="27b7bb1bfa15513f40073c11dc1364da" STYLE="fork">
+        <node TEXT="/left" ID="d55383fb55eea1c9ec167dcb13443aef" STYLE="fork">
           <node TEXT="description" ID="16690ee55ad6a909c19885a64c460de3" STYLE="fork">
             <node TEXT="右手腕部6维力传感器值" ID="208864a1948394da095b217c4df68843" STYLE="fork"/>
           </node>
@@ -1277,15 +1338,29 @@
               <node TEXT="应回复0牛顿" ID="21480fac8cbb8103dd8e4e93feee1860" STYLE="fork"/>
             </node>
           </node>
+          <node TEXT="demos" ID="6db6a737adf7c2e2c57ce0c655faeba2" STYLE="fork"/>
+          <node TEXT="/zero" ID="b1fd9b100f5b89ac7966310afff181da" STYLE="fork">
+            <node TEXT="description" ID="a96d04f973eb791ffc37dffc2f4b97bd" STYLE="fork">
+              <node TEXT="左腕力传感器标零" ID="923375bfa4561cb52e76585e0d755aef" STYLE="fork"/>
+            </node>
+            <node TEXT="type" ID="9d64f460da03a81a6750459c928b2763" STYLE="fork">
+              <node TEXT="Service" ID="b971e5fb6f8738ea4a028311e06a3daa" STYLE="fork"/>
+            </node>
+            <node TEXT="msg_type" ID="e14d90c00c821fc8c36d4190b618543f" STYLE="fork">
+              <node TEXT="std_srvs/Trigger" ID="c385fc77537c519db0cd114442540c08" STYLE="fork"/>
+            </node>
+            <node TEXT="agent" ID="6fdc2bbcbd30d3817bced7b2e919c208" STYLE="fork"/>
+            <node TEXT="demos" ID="c6518a9b860581dea58ece3b68e12a3b" STYLE="fork"/>
+          </node>
         </node>
-        <node TEXT="/right_hand" ID="7aacdaaf02f783cd7e378711d983ffb7" STYLE="fork">
+        <node TEXT="/right" ID="7aacdaaf02f783cd7e378711d983ffb7" STYLE="fork">
           <node TEXT="description" ID="1c08959bcb8f4ad3550f064b84697524" STYLE="fork">
             <node TEXT="左手腕部6维力传感器值" ID="be6af99dcbf5befe199812c89d2832d2" STYLE="fork"/>
           </node>
           <node TEXT="type" ID="98696c36714e0948c52fc50f360a3f9f" STYLE="fork">
             <node TEXT="Topic/Publish" ID="3ad0930b89084633015a77ef4b982700" STYLE="fork"/>
           </node>
-          <node TEXT="msmsg_typeg" ID="c533294a9d772595b6a88596d0030362" STYLE="fork">
+          <node TEXT="msg_type" ID="c533294a9d772595b6a88596d0030362" STYLE="fork">
             <node TEXT="geometry_msgs/WrenchStamped" ID="0a353e1bb6e67f2c7a1d0039eae2de74" STYLE="fork"/>
           </node>
           <node TEXT="hz" ID="76a9671a2b426a0dbfb3ecb02a168cc4" STYLE="fork">
@@ -1296,61 +1371,78 @@
               <node TEXT="应回复0牛顿" ID="5d5938af9c7787ee336399bdc590ccde" STYLE="fork"/>
             </node>
           </node>
-        </node>
-      </node>
-      <node TEXT="/finger_pressures" ID="ab633b3152eccebe9cfe5aff1ac30c07" STYLE="fork">
-        <node TEXT="description" ID="06f589ec2b48ab056f181b9fbc6d2eab" STYLE="fork">
-          <node TEXT="手指压力传感器状态值" ID="6a1e1681cce820faf76beda0bc511048" STYLE="fork"/>
-        </node>
-        <node TEXT="type" ID="28b6585c2fa9b14e945f4e49acfc2b57" STYLE="fork">
-          <node TEXT="Topic/Publish" ID="2ddffdff7e3ddebd4750ea59f65b459c" STYLE="fork"/>
-        </node>
-        <node TEXT="msg_type" ID="78d64f79e018698d8b7507e44f486629" STYLE="fork">
-          <node TEXT="sensor_msgs/JointState" ID="5fde67900e089b825b6db46bb78b2de2" STYLE="fork"/>
-        </node>
-        <node TEXT="hz" ID="1d23fca23590c52a571f03b1c7acf006" STYLE="fork">
-          <node TEXT="100" ID="70adaa73242e5b7c96239eba38ccfb44" STYLE="fork"/>
-        </node>
-        <node TEXT="agent" ID="78c60442dc3c79934795a096b18727f8" STYLE="fork">
-          <node TEXT="当前左手食指的检测到多少力" ID="c4046278c7ce6eb4fcdcda9e5a1844f0" STYLE="fork">
-            <node TEXT="应回复0牛顿" ID="6ce1dddcfeb0ef06db73307cfc0025e9" STYLE="fork"/>
+          <node TEXT="demos" ID="308c7fae3699958d74a77d1b36b2f0ad" STYLE="fork"/>
+          <node TEXT="/zero" ID="eaa03ed54d1d600a0935a96bf862cd8c" STYLE="fork">
+            <node TEXT="description" ID="9dca0afe9f9df224e099861123439900" STYLE="fork">
+              <node TEXT="右腕力传感器标零" ID="0e7bca200bb8061baf21bb0d10cccfd4" STYLE="fork"/>
+            </node>
+            <node TEXT="type" ID="273d94f177d0f9b60619b21df50ba6e1" STYLE="fork">
+              <node TEXT="Service" ID="548529f023bd3cfb6ce34f9f383019c9" STYLE="fork"/>
+            </node>
+            <node TEXT="msg_type" ID="7c5ef9a79883b60346a5bc0b04078cf5" STYLE="fork">
+              <node TEXT="std_srvs/Trigger" ID="ca914a5b669bab2a1f65db2aa96a0013" STYLE="fork"/>
+            </node>
+            <node TEXT="agent" ID="fe4303c292d39b4cb2b4ab07fce7d34c" STYLE="fork"/>
+            <node TEXT="demos" ID="5ab8e150013472e2d96ddefcfd379e9e" STYLE="fork"/>
           </node>
         </node>
       </node>
-      <node TEXT="/gesture_switch" ID="6e1dd53699e2f5b86cbaee33e2aa5680" STYLE="fork">
-        <node TEXT="/left_hand" ID="9811fa40f98d91822b73c5b21eda9156" STYLE="fork">
-          <node TEXT="description" ID="681177d293f5439490eb61f4594c5caf" STYLE="fork">
-            <node TEXT="左手掌手势控制" ID="387132d30f3c870061a69fcb598bb898" STYLE="fork"/>
+      <node TEXT="/finger_pressures" ID="6e1dd53699e2f5b86cbaee33e2aa5680" STYLE="fork">
+        <node TEXT="/left" ID="3bd9ff9de1932c22ef855f6d1265827f" STYLE="fork">
+          <node TEXT="description" ID="583c5f7bd166055aea4e04d890108e31" STYLE="fork">
+            <node TEXT="左手压力传感器数据" ID="de9be1ce747c8dbd7b473e31f1cc0a06" STYLE="fork"/>
           </node>
-          <node TEXT="type" ID="fa9c4c60075f4c5b70b3603ac867f2d1" STYLE="fork">
-            <node TEXT="Service" ID="c97a519da5a1c20907015fe9a306c2bd" STYLE="fork"/>
+          <node TEXT="type" ID="b19ee9402f47a0c97d338503dda19706" STYLE="fork">
+            <node TEXT="Topic" ID="36c9557a6f60ef5a3d81a7204ae6c83d" STYLE="fork"/>
           </node>
-          <node TEXT="msg_type" ID="8d63bef9160ca278cf4ab94e92f0c4b7" STYLE="fork"/>
-          <node TEXT="demos" ID="2d1816cd4439f36453275670c786a6f5" STYLE="fork"/>
-          <node TEXT="agent" ID="f652eaedbf3aa2e95d6c66a454d64eb4" STYLE="fork">
-            <node TEXT="左手摆出1的手势" ID="c512353c404f05d3be7a4caddaebe1ec" STYLE="fork">
-              <node TEXT="订阅/hand_joint_states左手中指数值应大于60" ID="97f0968679e2d865553650570b8f43fd" STYLE="fork"/>
+          <node TEXT="msg_type" ID="aaa3bb5394387c13023e370a12a8d13f" STYLE="fork">
+            <node TEXT="hand/PressureSensor" ID="f443aaec092aa91629124424e0c63edc" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="f1096f93af9a75389337179f0bbb5450" STYLE="fork"/>
+          <node TEXT="agent" ID="100731e1ebb2de08ed1feb34d7490019" STYLE="fork"/>
+          <node TEXT="/zero" ID="0b0cc68d00b8340c9e657417c779a702" STYLE="fork">
+            <node TEXT="description" ID="a24277634802bfd839c2295429d33125" STYLE="fork">
+              <node TEXT="左手压力传感器标零" ID="d957ec71475b57f1b06c5e00ef57f2c8" STYLE="fork"/>
             </node>
+            <node TEXT="type" ID="2d944c2eabe7942a692b8b4e0dfd9f98" STYLE="fork">
+              <node TEXT="Service" ID="f666bfbce6be6ecb9b5eb3a35d83e95d" STYLE="fork"/>
+            </node>
+            <node TEXT="msg_type" ID="fe8f645a5a4d119c772ef5f0054fc6cf" STYLE="fork">
+              <node TEXT="std_srvs/Trigger" ID="15223a806dcd0fbe0eaa9fa3f58b032c" STYLE="fork"/>
+            </node>
+            <node TEXT="demos" ID="298dac73f7373e5d82f62bac544be465" STYLE="fork"/>
+            <node TEXT="agent" ID="f919fa87d3358bed018f063b57fe683b" STYLE="fork"/>
           </node>
         </node>
-        <node TEXT="/right_hand" ID="241f0384050d6c3e8f99eecf2565b92d" STYLE="fork">
-          <node TEXT="description" ID="be0dda96e5fce2fad7e6483804fb6900" STYLE="fork">
-            <node TEXT="右手掌手势控制" ID="bf2bc5bf2a77700b3c09d7ba7c4861cd" STYLE="fork"/>
+        <node TEXT="/right" ID="241f0384050d6c3e8f99eecf2565b92d" STYLE="fork">
+          <node TEXT="description" ID="a909f7663e1a71f51a49b51942300f56" STYLE="fork">
+            <node TEXT="右手压力传感器数据" ID="b13ccc6c0b68d075991517045b52a515" STYLE="fork"/>
           </node>
-          <node TEXT="type" ID="f9b217107ec77a8be0316fccf2dacc6d" STYLE="fork">
-            <node TEXT="Service" ID="458bfb83d1c72fed5f2388ad38d3d86e" STYLE="fork"/>
+          <node TEXT="type" ID="0f1502872c4e33e98a5e7b08fe8001c6" STYLE="fork">
+            <node TEXT="Topic" ID="84cfdb5b95ca13df8bd4d8376bea6754" STYLE="fork"/>
           </node>
-          <node TEXT="msg_type" ID="ef85c7d80d4f1480d442c632c888ab49" STYLE="fork"/>
-          <node TEXT="demos" ID="6f4b9c3f48766e96ea89160d42a0cfb5" STYLE="fork"/>
-          <node TEXT="agent" ID="802aec548f665314467b539bc46b9d40" STYLE="fork">
-            <node TEXT="右手摆出1的手势" ID="ea7645c2079f31db05143933a3aca9a7" STYLE="fork">
-              <node TEXT="订阅/hand_joint_states右手中指数值应大于60" ID="fa3bb606ce72c9374da1e31abffafb98" STYLE="fork"/>
+          <node TEXT="msg_type" ID="911f8e76b539a9176b995a8af89ce707" STYLE="fork">
+            <node TEXT="hand/PressureSensor" ID="07b494020d0083e78ea8c151a45b34e4" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="d19555aebd3a62d4645b35ce05780bff" STYLE="fork"/>
+          <node TEXT="agent" ID="ac7b967e80d65f1ba0d3b5dd09c4dd2a" STYLE="fork"/>
+          <node TEXT="/zero" ID="bf32f87ffe91904855ddb612e40a13b2" STYLE="fork">
+            <node TEXT="description" ID="61b548715d249353fcb83014d27acd86" STYLE="fork">
+              <node TEXT="右手压力传感器标零" ID="51510cf8722e5d781e71c8f619e3cbad" STYLE="fork"/>
             </node>
+            <node TEXT="type" ID="6244d41c19594837a463bec256bef238" STYLE="fork">
+              <node TEXT="Service" ID="df0e13d8f7442962f4d8e8c0ae3e531d" STYLE="fork"/>
+            </node>
+            <node TEXT="msg_type" ID="113d78eb838622a3fc6257c971f958d2" STYLE="fork">
+              <node TEXT="std_srvs/Trigger" ID="0560f15df542c485f38b1851616b4707" STYLE="fork"/>
+            </node>
+            <node TEXT="demos" ID="a41f470afdd697940ee3430cb42177c6" STYLE="fork"/>
+            <node TEXT="agent" ID="185e0a970a1b9a9c338b99ed272ceb6c" STYLE="fork"/>
           </node>
         </node>
       </node>
       <node TEXT="/task_switch" ID="b1d7b0db94a45b6036a9eb842e80ed1b" STYLE="fork">
-        <node TEXT="/left_hand" ID="0c539709fe0c0429533a634ca10c0130" STYLE="fork">
+        <node TEXT="/left" ID="0c539709fe0c0429533a634ca10c0130" STYLE="fork">
           <node TEXT="description" ID="ad19cc96590d4d06e092cc5abf772b02" STYLE="fork">
             <node TEXT="左手掌任务控制" ID="6163484f23220f2625cb94850b27ec90" STYLE="fork"/>
           </node>
@@ -1360,7 +1452,7 @@
           <node TEXT="msg_type" ID="cb5891801b12f368ab52afa8bfcf41e9" STYLE="fork"/>
           <node TEXT="demos" ID="ae74c0b1b4fe7e60999fe2b06f36013a" STYLE="fork"/>
         </node>
-        <node TEXT="/right_hand" ID="eeacf28dc0fc1d765b09e6a433c7f94f" STYLE="fork">
+        <node TEXT="/right" ID="eeacf28dc0fc1d765b09e6a433c7f94f" STYLE="fork">
           <node TEXT="description" ID="691c89aa7eb29ff79fce3b8ae4203d53" STYLE="fork">
             <node TEXT="右手掌任务控制" ID="cd247cee7d33dc689dc4f5d4a7554cbf" STYLE="fork"/>
           </node>
@@ -1372,14 +1464,16 @@
         </node>
       </node>
       <node TEXT="/joint_switch" ID="e625bd6ff1b555dbabfc5cc20af1a49d" STYLE="fork">
-        <node TEXT="/left_hand" ID="2a45d200617dd54df594184659f6c805" STYLE="fork">
+        <node TEXT="/left" ID="2a45d200617dd54df594184659f6c805" STYLE="fork">
           <node TEXT="description" ID="d04bed7ea01d028a3ab3c8d8946c8347" STYLE="fork">
             <node TEXT="左手掌关节控制" ID="247025c9f5515a982a96dca7e6bf4c60" STYLE="fork"/>
           </node>
           <node TEXT="type" ID="e3546bff5bd376279b0af8103f389b8c" STYLE="fork">
             <node TEXT="Service" ID="969041568152b2c72e6f7be37d4718e8" STYLE="fork"/>
           </node>
-          <node TEXT="msg_type" ID="9de131469a018e7a48ad306db30ef049" STYLE="fork"/>
+          <node TEXT="msg_type" ID="9de131469a018e7a48ad306db30ef049" STYLE="fork">
+            <node TEXT="HandJoint" ID="602fcaa7ff5eff8cc20e377b7ab635d3" STYLE="fork"/>
+          </node>
           <node TEXT="demos" ID="7eef2e5de268d5a43b276dd19445d494" STYLE="fork"/>
           <node TEXT="agent" ID="0cc61361111fe6f57f0a0996a616ed70" STYLE="fork">
             <node TEXT="左手食指弯曲40度" ID="3b35ef50f98008eb0f7139f74e398320" STYLE="fork">
@@ -1387,14 +1481,16 @@
             </node>
           </node>
         </node>
-        <node TEXT="/right_hand" ID="cd482eed5573666994883b79927826ea" STYLE="fork">
+        <node TEXT="/right" ID="cd482eed5573666994883b79927826ea" STYLE="fork">
           <node TEXT="description" ID="24c8e9984fd76b300d29ad1788e04ec8" STYLE="fork">
             <node TEXT="左手掌关节控制" ID="1f155bf4bfd3c90f4bf2ef5c4c3aa4bd" STYLE="fork"/>
           </node>
           <node TEXT="type" ID="e01359860d6cdf27304d2d662ea48749" STYLE="fork">
             <node TEXT="Service" ID="5479141b954fa955f4c931b33e347ce0" STYLE="fork"/>
           </node>
-          <node TEXT="msg_type" ID="de945fbd4ab522d946411f9f720d3956" STYLE="fork"/>
+          <node TEXT="msg_type" ID="de945fbd4ab522d946411f9f720d3956" STYLE="fork">
+            <node TEXT="HandJoint" ID="3bdf60a83f1066d3d20483e1ee7519c9" STYLE="fork"/>
+          </node>
           <node TEXT="demos" ID="bfd1acf782371b749a4b1c4d459c8be1" STYLE="fork"/>
           <node TEXT="agent" ID="cabe150e4756c42d99c91e6356043397" STYLE="fork">
             <node TEXT="右手食指弯曲40度" ID="c781b60c5e72f296b0314705871e95cc" STYLE="fork">
@@ -1420,6 +1516,36 @@
           </node>
         </node>
       </node>
+      <node TEXT="/gesture_switch" ID="d5a0de86884043c3e237591b87e03859" STYLE="fork">
+        <node TEXT="/left" ID="9f85d9c7bee4f61557dc82656971e9be" STYLE="fork">
+          <node TEXT="description" ID="f84ddaf5fa56ffbb723159935b204ac3" STYLE="fork">
+            <node TEXT="左手掌手势控制" ID="50fbf929b97f29ed1e3eec374365d2f2" STYLE="fork"/>
+          </node>
+          <node TEXT="type" ID="de3f2ef68dd44198bdd61747e096fd9d" STYLE="fork">
+            <node TEXT="Service" ID="a23ace8c347945bce7b16011e07da09d" STYLE="fork"/>
+          </node>
+          <node TEXT="msg_type" ID="fd9316000627148efa7845d0d1947e3b" STYLE="fork">
+            <node TEXT="Gesture" ID="80b13b0b6fd01035cb7f0319eb064882" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="872232ed5e5b7832f92e99aa521c5679" STYLE="fork">
+            <node TEXT="" ID="63b291b04a92f71cfbeb5372fc7d02ea" STYLE="fork"/>
+          </node>
+          <node TEXT="agent" ID="170a648186d2265809f12e8fd359b3cf" STYLE="fork"/>
+        </node>
+        <node TEXT="/right" ID="2ddaa4f5884dbff8dbea5d25ea88062e" STYLE="fork">
+          <node TEXT="description" ID="9fcea1348e3c09800097c30173d145bd" STYLE="fork">
+            <node TEXT="左手掌手势控制" ID="8d8d26818cd920f0ad5f9d4794e9dd37" STYLE="fork"/>
+          </node>
+          <node TEXT="type" ID="dc66c4f7efc1fab4d47de2df032d4370" STYLE="fork">
+            <node TEXT="Service" ID="052585012032ea4c92877b67090dfd7c" STYLE="fork"/>
+          </node>
+          <node TEXT="msg_type" ID="4ec1d6ebc505345c68efbd69f189391e" STYLE="fork">
+            <node TEXT="Gesture" ID="72090a72f631ea5feca85fb698bd1c37" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="495ce4acc90b73b3d3f5a56ef4950a0a" STYLE="fork"/>
+          <node TEXT="agent" ID="ba5b5e5c9b2b3356a74f4d2ab9e6dfac" STYLE="fork"/>
+        </node>
+      </node>
     </node>
     <node TEXT="/lowerlimb" ID="f29a5da1169c482398f676b404b8f274" STYLE="bubble" POSITION="right">
       <node TEXT="/cmd_vel" ID="86625d5ef9f6460dba8d2887e1f0daf8" STYLE="fork">
@@ -1436,6 +1562,7 @@
           <node TEXT="hz" ID="79251742b80afa22171b1fa7242c2d07" STYLE="fork">
             <node TEXT="10" ID="123cd405328e750a7b5292ba213a56e0" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="0d38ec8ca0c818bd0dd18b61f9e69f0b" STYLE="fork"/>
         </node>
         <node TEXT="/web" ID="fbed2aa2ba7f524f2fc14ff3ef0d4b9c" STYLE="fork">
           <node TEXT="description" ID="377552e83f763f3142f25d307a844e59" STYLE="fork">
@@ -1450,6 +1577,7 @@
           <node TEXT="hz" ID="2778003fd7eb6320f8caae977008fe64" STYLE="fork">
             <node TEXT="10" ID="4b17224720b61524cf5023b2ffea05a8" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="2e8ff527200749bc595fdfc6316d36c1" STYLE="fork"/>
         </node>
         <node TEXT="/calib" ID="7b12c8dff6b7f11c934f55e0361c920f" STYLE="fork">
           <node TEXT="description" ID="fe37ba5a4d883df7a29afa5fbf26a443" STYLE="fork">
@@ -1464,6 +1592,7 @@
           <node TEXT="hz" ID="bd87435a53dbeef4c1ab97e63f1105ba" STYLE="fork">
             <node TEXT="10" ID="72e14c96fa33e0d82f4cf51c9cc0a61d" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="ec86c91b343861c531d1d25aeec0bb87" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/set_stand" ID="e30a52f43209046c34fc5cffffe84ed4" STYLE="fork">
@@ -1474,6 +1603,7 @@
           <node TEXT="Topic/Subscribe" ID="47f2d3275dc3e80240310e88b4e53968" STYLE="fork"/>
         </node>
         <node TEXT="msg_type" ID="3ce4aa7eefb2e39734c114958acbb829" STYLE="fork"/>
+        <node TEXT="demos" ID="b5a6f70eec9656a001e4aeac1e8295c7" STYLE="fork"/>
       </node>
       <node TEXT="/set_lie" ID="ee706ca6ede82685cdd3eb2eaf2830f5" STYLE="fork">
         <node TEXT="description" ID="36a7a4eccc2a7153a3ff3bf95254c6ac" STYLE="fork">
@@ -1483,6 +1613,7 @@
           <node TEXT="Topic/Subscribe" ID="37eb2d3500bda70e79b80903b7c6252d" STYLE="fork"/>
         </node>
         <node TEXT="msg_type" ID="cc960ac08901ccd026d120923c5d00e3" STYLE="fork"/>
+        <node TEXT="demos" ID="cfb3eb1a48609f41b109f7c55f1179d1" STYLE="fork"/>
       </node>
       <node TEXT="/start_move" ID="f24453d0f68694160b3bdc7eb7668bea" STYLE="fork">
         <node TEXT="description" ID="f2366897fb8be6e651915a5baecaf2eb" STYLE="fork">
@@ -1492,6 +1623,7 @@
           <node TEXT="Topic/Subscribe" ID="af000a46cce01fc503250defa5ea4915" STYLE="fork"/>
         </node>
         <node TEXT="msg_type" ID="9356a65f376b482b2bacff352aaaefe6" STYLE="fork"/>
+        <node TEXT="demos" ID="0871f01468e36cdf545a6ecf509c1f57" STYLE="fork"/>
       </node>
       <node TEXT="/body_imu" ID="8866e9e8536697c37ac7dc06414edc92" STYLE="fork">
         <node TEXT="description" ID="bc63822e30cf57c9336e499c99f221eb" STYLE="fork">
@@ -1506,15 +1638,17 @@
         <node TEXT="hz" ID="8e88021c7443cfe07314cffb87b234e2" STYLE="fork">
           <node TEXT="100" ID="79f6c7547c3c7b8d9cacb73a7922221a" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="2df60dddbdf50d013f67dcb190a37416" STYLE="fork"/>
       </node>
       <node TEXT="/uplimb_occupation" ID="5a4c6af6270735431a1b55b973e0f91a" STYLE="fork">
         <node TEXT="description" ID="13519df7eda448e1c9a693a2685ceb81" STYLE="fork">
           <node TEXT="上肢控制请求" ID="141b657be9e9b86288f4903c7a459bad" STYLE="fork"/>
         </node>
         <node TEXT="type" ID="ba29c86517b7f80b418b7a84df95f4d6" STYLE="fork">
-          <node TEXT="Service" ID="31a0aadcb081a1b67ccba12ca75458be" STYLE="fork"/>
+          <node TEXT="Topic/Publish" ID="31a0aadcb081a1b67ccba12ca75458be" STYLE="fork"/>
         </node>
         <node TEXT="msg_type" ID="a931e16c30c94d9c7a987c4ab7be44e9" STYLE="fork"/>
+        <node TEXT="demos" ID="90e3c7640ca611e756afb19da475d423" STYLE="fork"/>
       </node>
       <node TEXT="/versions" ID="ecf84bc97ad18c823adc055dcad24746" STYLE="fork">
         <node TEXT="description" ID="cdfdebce60b801b5ff1fc6698c1720d0" STYLE="fork">
@@ -1541,6 +1675,7 @@
         <node TEXT="hz" ID="f83741f3f2016d113fe25242ae68f2cf" STYLE="fork">
           <node TEXT="1" ID="e822a2ff3839df5b3e525e13cb605f70" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="4b0fd3456dc8a9ec17ee105899910056" STYLE="fork"/>
       </node>
     </node>
     <node TEXT="/sensor" ID="0878fc32a8546b7a7d4ca6fcc50caa80" STYLE="bubble" POSITION="left">
@@ -1555,7 +1690,9 @@
           <node TEXT="msg_type" ID="4befae141d5616a371ef0dc54e7ee4e1" STYLE="fork">
             <node TEXT="CameraInfo" ID="d66fb2cd9f52b90957893267b3bd5466" STYLE="fork"/>
           </node>
-          <node TEXT="demos" ID="ad7ddce310596a062c54f944706fd85f" STYLE="fork"/>
+          <node TEXT="demos" ID="ad7ddce310596a062c54f944706fd85f" STYLE="fork">
+            <node TEXT="" ID="3f2869232f5e6ba6c18711e7c9ce8731" STYLE="fork"/>
+          </node>
           <node TEXT="agent" ID="59de9d4846d7075a4be1b9b37b87c8e1" STYLE="fork">
             <node TEXT="相机A的分辨率是多少" ID="a8c8b3a270e629c0af8c25fa94473274" STYLE="fork">
               <node TEXT="回复应包含1280和720" ID="4f18ce27445a7e99df7c9219074cb413" STYLE="fork"/>
@@ -1580,6 +1717,9 @@
               <node TEXT="回复应接近16" ID="35075a9f5c575014949e1d24fc507170" STYLE="fork"/>
             </node>
           </node>
+          <node TEXT="demos" ID="a0781ef794672f2c2bbe919eec472cdf" STYLE="fork">
+            <node TEXT="" ID="923104062db0b7b80a9a10343b70ff40" STYLE="fork"/>
+          </node>
         </node>
         <node TEXT="/compressed" ID="ca634ff94790fa2a82746bb37c191a5f" STYLE="fork">
           <node TEXT="description" ID="921f4d4e929defb24ff918ea62f4f9a8" STYLE="fork">
@@ -1593,6 +1733,9 @@
           </node>
           <node TEXT="hz" ID="5c80e4936da34152c39be12d28e1cf2c" STYLE="fork">
             <node TEXT="16" ID="f4e1fc51afb9ab57ef03e7f26463a5ee" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="6e6ee6a799bf96a1aeaeb481b6ec00a0" STYLE="fork">
+            <node TEXT="" ID="74d5ce048c2026153cbbf517ab3badc9" STYLE="fork"/>
           </node>
         </node>
       </node>
@@ -1632,6 +1775,9 @@
               <node TEXT="回复应接近16" ID="a345765c63d5cfa12109948dfe2e5a5f" STYLE="fork"/>
             </node>
           </node>
+          <node TEXT="demos" ID="0685353d7140f88fafb4ea2f2918a53a" STYLE="fork">
+            <node TEXT="" ID="4b7cb6a1e79fb3134dcda660edd490f3" STYLE="fork"/>
+          </node>
         </node>
         <node TEXT="/compressed" ID="06f40a2561037b8788f260707ce7ec8e" STYLE="fork">
           <node TEXT="description" ID="9116d1eebb82187d34a116c0c0d9c453" STYLE="fork">
@@ -1645,6 +1791,9 @@
           </node>
           <node TEXT="hz" ID="c80e7000ab810eda3cf8654d1b706879" STYLE="fork">
             <node TEXT="16" ID="59c15c8bc609ffb95b8e042b919f21d6" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="4245e73759d4f830a117b8152231d4d2" STYLE="fork">
+            <node TEXT="" ID="312879272237f8ed236f798f39655253" STYLE="fork"/>
           </node>
         </node>
       </node>
@@ -1684,6 +1833,9 @@
               <node TEXT="回复应接近16" ID="74fe1cacebaaa328590e4eb79ec05ac6" STYLE="fork"/>
             </node>
           </node>
+          <node TEXT="demos" ID="60d8d92a34f2817b4e06b5541fabc850" STYLE="fork">
+            <node TEXT="" ID="6af1709d0b53ff15bdb43d2b90c88b21" STYLE="fork"/>
+          </node>
         </node>
         <node TEXT="/compressed" ID="af9c861a55a1771adb2b18a4d12d71e0" STYLE="fork">
           <node TEXT="description" ID="483716cb43fe82a81b9a0f89b4ef917e" STYLE="fork">
@@ -1697,6 +1849,9 @@
           </node>
           <node TEXT="hz" ID="4cb258bc48b6c5d13341040f0d68bf1e" STYLE="fork">
             <node TEXT="16" ID="ba5f1a268ad4c5c18eb0c93d68ec984d" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="497f95fbf05514af7fb6bb5c0aaaf948" STYLE="fork">
+            <node TEXT="" ID="2b6098f41dab58066c27c1c42f10bad5" STYLE="fork"/>
           </node>
         </node>
       </node>
@@ -1736,6 +1891,9 @@
               <node TEXT="回复应接近16" ID="461c8642b44217babbfa4db43d722d72" STYLE="fork"/>
             </node>
           </node>
+          <node TEXT="demos" ID="8d9612a5504ef481c0acc34d86f82e67" STYLE="fork">
+            <node TEXT="" ID="fbd3addcee3c7867c8ed26a177605bfe" STYLE="fork"/>
+          </node>
         </node>
         <node TEXT="/compressed" ID="5bdee1dc21315cca0026ad80a0dd2a9c" STYLE="fork">
           <node TEXT="description" ID="d3ad5cda9ae25bcb64f712ea93657dd4" STYLE="fork">
@@ -1749,6 +1907,9 @@
           </node>
           <node TEXT="hz" ID="669e5f7aed3cdd28845ea4f26beaf91c" STYLE="fork">
             <node TEXT="16" ID="9ac92ae798a2032f63f40494301832ea" STYLE="fork"/>
+          </node>
+          <node TEXT="demos" ID="a00e724a274046b0dba6c444f3fe331d" STYLE="fork">
+            <node TEXT="" ID="5d14297f7d02692a8bef9559b4ba4584" STYLE="fork"/>
           </node>
         </node>
       </node>
@@ -1770,6 +1931,7 @@
             <node TEXT="回复应接近100" ID="8065f876d3e8bd01b1f8240aefbec7dd" STYLE="fork"/>
           </node>
         </node>
+        <node TEXT="demos" ID="ec5fa290d4c0b5afbdd7b1c9e4ae9160" STYLE="fork"/>
       </node>
       <node TEXT="/realsense_up" ID="f256609a6d9533d32b653f312a52b888" STYLE="fork">
         <node TEXT="/aligned_depth_to_color" ID="cd350bad972e1ee5e8d7d53f1a3488bc" STYLE="fork">
@@ -1786,6 +1948,7 @@
             <node TEXT="hz" ID="88f2cde7e2e7f7475cbcac8193bc51e8" STYLE="fork">
               <node TEXT="30" ID="ec9bb22c47a7f9d9800406530941774e" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="ce95e6e9965d6b41ae77fb79329d47da" STYLE="fork"/>
           </node>
           <node TEXT="/image_raw" ID="ce27d8398790f65c5bd5af731d1526fb" STYLE="fork">
             <node TEXT="description" ID="d00e655083784ad6c410557d1db0e87e" STYLE="fork">
@@ -1799,6 +1962,9 @@
             </node>
             <node TEXT="hz" ID="4c6d350a70bcbb48bd048f540b7bcdca" STYLE="fork">
               <node TEXT="30" ID="dcbef4659121e634160b34a3f5d3eb2b" STYLE="fork"/>
+            </node>
+            <node TEXT="demos" ID="955bca0de83a17ee6a372c5ca7e61ac4" STYLE="fork">
+              <node TEXT="" ID="1407b984d10c705dd2fadc44634f0b1f" STYLE="fork"/>
             </node>
           </node>
           <node TEXT="/image_raw" ID="91b1229352ae02c7844dd195d9979bbf" STYLE="fork">
@@ -1814,6 +1980,9 @@
               </node>
               <node TEXT="hz" ID="dfd26cf727971e26b4c6bffb1665cbb1" STYLE="fork">
                 <node TEXT="30" ID="07e237ed449567908c3ad7efb69afd79" STYLE="fork"/>
+              </node>
+              <node TEXT="demos" ID="ea84a442669c046c4a5f559eaff1dbca" STYLE="fork">
+                <node TEXT="" ID="f8bf2677be41ee98ff2d984dfe476ac0" STYLE="fork"/>
               </node>
             </node>
           </node>
@@ -1832,6 +2001,7 @@
             <node TEXT="hz" ID="0cbe06c02c5c377dc752b2b889502d3a" STYLE="fork">
               <node TEXT="30" ID="a6498b4dcb4ce56ed89f688bed4777ba" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="81f4322ff4eca174dd1fdc2ac01055ae" STYLE="fork"/>
           </node>
           <node TEXT="/image_raw" ID="c2085595b797be69bfa914b7da45c47c" STYLE="fork">
             <node TEXT="description" ID="ff03702ec97574ae878889f9f8e7c2d8" STYLE="fork">
@@ -1860,6 +2030,9 @@
                 <node TEXT="30" ID="e8b38318aa6791655f175bb66d7e3b47" STYLE="fork"/>
               </node>
             </node>
+            <node TEXT="demos" ID="0fe5a0905208a779cc689d4a8e45969c" STYLE="fork">
+              <node TEXT="" ID="36a6e8bb9cf39c7bb1c2b8130b3f0cec" STYLE="fork"/>
+            </node>
           </node>
         </node>
         <node TEXT="/depth" ID="ce2c72af0e1329117d8a4deb56a29290" STYLE="fork">
@@ -1876,6 +2049,7 @@
             <node TEXT="hz" ID="8e0ea15909e0c84a5aaf35a4286e3542" STYLE="fork">
               <node TEXT="30" ID="127804f2c34c7c246cc7d92a284434d0" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="e30c4db14dd8406589356596e7cf07e2" STYLE="fork"/>
           </node>
           <node TEXT="/image_raw" ID="eba320b2938773e3f708d51f8911e942" STYLE="fork">
             <node TEXT="description" ID="4345c741a8588c9f05ec3914d432c091" STYLE="fork">
@@ -1889,6 +2063,9 @@
             </node>
             <node TEXT="hz" ID="0b0e54fe9ce0ae272a7862f23a25c1fb" STYLE="fork">
               <node TEXT="30" ID="61070c494f25642a29d6634b499c9124" STYLE="fork"/>
+            </node>
+            <node TEXT="demos" ID="6be4563c691b06397500d28d5f1e91b6" STYLE="fork">
+              <node TEXT="" ID="50b65114f223df491efda88c33504400" STYLE="fork"/>
             </node>
             <node TEXT="/compressed" ID="a8f1747871cbdd1ae43ebb19ada90825" STYLE="fork">
               <node TEXT="description" ID="259d5e0255af4e971966bbd51995e311" STYLE="fork">
@@ -1922,6 +2099,7 @@
             <node TEXT="hz" ID="26a0f95970637c1c32b9cf2c922a1d15" STYLE="fork">
               <node TEXT="30" ID="13ba312ab766419242737766563b5bf7" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="d7fa17c348758db722198f6e3ba2968f" STYLE="fork"/>
           </node>
           <node TEXT="/image_raw" ID="7d91bbb1f63cbdbdd47607ce4291eb46" STYLE="fork">
             <node TEXT="description" ID="fdb5a7d8dd3b88490e2b7f6283a25efd" STYLE="fork">
@@ -1935,6 +2113,9 @@
             </node>
             <node TEXT="hz" ID="f8c9c1c26483611431719d2364aad81b" STYLE="fork">
               <node TEXT="30" ID="df15abf0d32a18cd816e7e46b1c2b23e" STYLE="fork"/>
+            </node>
+            <node TEXT="demos" ID="f898105ad1f8e0837cdf826dffe7745b" STYLE="fork">
+              <node TEXT="" ID="0fc4b9f2d1a3a3d38cc1d2b9f6dab329" STYLE="fork"/>
             </node>
           </node>
           <node TEXT="/image_raw" ID="7da7bd2ed095f849f9016582f870bc9e" STYLE="fork">
@@ -1950,6 +2131,9 @@
               </node>
               <node TEXT="hz" ID="cb9eb6187a4ba4c8f145bd24491504a6" STYLE="fork">
                 <node TEXT="30" ID="5b88ac37b530577e48b74d49176b04d3" STYLE="fork"/>
+              </node>
+              <node TEXT="demos" ID="bf5ac99fe7f6a14e9bb68dd90f9c4622" STYLE="fork">
+                <node TEXT="" ID="37cc8652cf6169dce6f5c04474a50ff1" STYLE="fork"/>
               </node>
             </node>
           </node>
@@ -1968,6 +2152,7 @@
             <node TEXT="hz" ID="5bd30ac9d755f9cf53664becff226333" STYLE="fork">
               <node TEXT="30" ID="3b69ff01b5e6397a2d188d0b87d78b59" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="8e4fdc546b0872f165146950c801dc6a" STYLE="fork"/>
           </node>
           <node TEXT="/image_raw" ID="24a517568f781c01bfd8e9fdaf3e6644" STYLE="fork">
             <node TEXT="description" ID="2a32a232006a5197c9e2a5184509f2e5" STYLE="fork">
@@ -1982,6 +2167,9 @@
             <node TEXT="hz" ID="3e6c77559d192a506ee9a7276e29ac1e" STYLE="fork">
               <node TEXT="30" ID="225350ac115d4e3c6fbe4c68ced2f723" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="60598d7603d040ccc5ebc866a3013161" STYLE="fork">
+              <node TEXT="" ID="91ccab5110a0c24f2e1b86aaa9d65ee1" STYLE="fork"/>
+            </node>
             <node TEXT="/compressed" ID="1cfab831397c455bdf227092d8e52e81" STYLE="fork">
               <node TEXT="description" ID="4db409663ca94c66be9ec0111b39bbc6" STYLE="fork">
                 <node TEXT="胸部深度相机的RGB图像JPG格式" ID="8774f501673b95863593da08db4c7fb9" STYLE="fork"/>
@@ -1994,6 +2182,9 @@
               </node>
               <node TEXT="hz" ID="64fdedf55227c3774183bd14b1e459b3" STYLE="fork">
                 <node TEXT="30" ID="070ad51d5cf0673c141bfc292b6db3b4" STYLE="fork"/>
+              </node>
+              <node TEXT="demos" ID="febcfb57757ab847d564a4115f144c2e" STYLE="fork">
+                <node TEXT="" ID="2de3ee03fe339a79d7499d2b128b29a2" STYLE="fork"/>
               </node>
             </node>
           </node>
@@ -2012,6 +2203,7 @@
             <node TEXT="hz" ID="a7817180c161bb0c19bb3f2b64f251ed" STYLE="fork">
               <node TEXT="30" ID="cb0b646c724bf3adfb236117c4a5ac34" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="c9f45e3aabbdb7154c638e7245f23c6a" STYLE="fork"/>
           </node>
           <node TEXT="/image_raw" ID="598a3fc9f7357bfbb61326679044398b" STYLE="fork">
             <node TEXT="description" ID="54550630911a089aaa2474d226869529" STYLE="fork">
@@ -2026,6 +2218,9 @@
             <node TEXT="hz" ID="7f72acb80851d1231522ffea7a003315" STYLE="fork">
               <node TEXT="30" ID="e04485332a79ed8b20394f85b4e4174f" STYLE="fork"/>
             </node>
+            <node TEXT="demos" ID="6b0ff38c7f63bb0940c26067e6b667a8" STYLE="fork">
+              <node TEXT="" ID="868e6464d290fe2d72b6a92017e88525" STYLE="fork"/>
+            </node>
             <node TEXT="/compressed" ID="1d5b5934370a37d3aa7c286075828779" STYLE="fork">
               <node TEXT="description" ID="f81252e816f4b70859fe8eaf5ed71512" STYLE="fork">
                 <node TEXT="胸部深度相机的RGB图像JPG格式" ID="9fc8d8a2b340d7bfc6286337b186e797" STYLE="fork"/>
@@ -2039,13 +2234,16 @@
               <node TEXT="hz" ID="100fe672e7d1974d1d4c11bef2c00556" STYLE="fork">
                 <node TEXT="30" ID="067e5064e8ee068ddd67c1e76a0c0166" STYLE="fork"/>
               </node>
+              <node TEXT="demos" ID="63cfb5f7e1060df62f447cf565f9d608" STYLE="fork">
+                <node TEXT="" ID="d190ea9d99ddcfcca6c1d5a41f85bdd8" STYLE="fork"/>
+              </node>
             </node>
           </node>
         </node>
       </node>
     </node>
     <node TEXT="/manipulate" ID="7ac2d838071e5524ffee055d957b514e" STYLE="bubble" POSITION="left">
-      <node TEXT="/naviai_manip_update_scene_service" ID="6c8c3e9e3dbf024a50016155fbccc423" STYLE="fork">
+      <node TEXT="/scene_update" ID="6c8c3e9e3dbf024a50016155fbccc423" STYLE="fork">
         <node TEXT="description" ID="34501f30fd0b1296bfbc2ca67eeb5f1e" STYLE="fork">
           <node TEXT="机器人场景更新,基于二维码，需要场景中有二维码" ID="248657b54dc9e75b45ffaba1033a046f" STYLE="fork"/>
         </node>
@@ -2079,7 +2277,7 @@
           <node TEXT="示教模式下记录各个关节数据，据此生成完整的执行轨迹" ID="381cc48231be434dcecda60dc4ef6134" STYLE="fork"/>
         </node>
       </node>
-      <node TEXT="/naviai_manip_motion_plan_service" ID="b42f424159e97e982f2996cc5e8b5b44" STYLE="fork">
+      <node TEXT="/pose_space_trajectory_planner" ID="b42f424159e97e982f2996cc5e8b5b44" STYLE="fork">
         <node TEXT="description" ID="c99c5e6ff1df452212642453afac3a1f" STYLE="fork">
           <node TEXT="末端空间轨迹规划" ID="80353fdcd67484a8f0af003865e41dd1" STYLE="fork"/>
         </node>
@@ -2109,6 +2307,7 @@
         <node TEXT="agent" ID="9c901371ad2e379a12851d30e81bb43c" STYLE="fork">
           <node TEXT="自动相机内外参标定，外参标定时机器人会执行一段轨迹，拍摄不同角度的照片，从而计算外参" ID="b076b4f32d86a5333caef63b0688a5df" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="34a416969c7a2dcc2d610fd4a89611d5" STYLE="fork"/>
       </node>
       <node TEXT="/grasp_teach_service" ID="132163dfbf746a4cec8a5498a36466fd" STYLE="fork">
         <node TEXT="description" ID="bc08880f15c38b47b95c18d9824a2b5e" STYLE="fork">
@@ -2123,6 +2322,7 @@
         <node TEXT="agent" ID="e4db239492a5449eadd04712be2ec8d5" STYLE="fork">
           <node TEXT="视觉示教抓取，让机器人知道该从什么方位抓取物品" ID="421df9b756ca505edf8518d6bfd5a901" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="f1f2350cb5cbac9d2a180d7e89e3c467" STYLE="fork"/>
       </node>
       <node TEXT="/pose_estimation_service" ID="98dd34355b72483e0eebce56996078f4" STYLE="fork">
         <node TEXT="description" ID="6d389bcd502c6e80edb0d1b81b798be3" STYLE="fork">
@@ -2177,6 +2377,25 @@
           </node>
         </node>
       </node>
+      <node TEXT="version" ID="065049e3aa24218dbe2f9bb35ab73106" STYLE="fork">
+        <node TEXT="description" ID="2280d6a5d9e88cf2aedc878a24be1581" STYLE="fork">
+          <node TEXT="操作代码的版本号" ID="a64806f0a3c9f70f5fb733fc16027b09" STYLE="fork"/>
+        </node>
+        <node TEXT="type" ID="70a3ecb292e0ba0556644b55f5e38415" STYLE="fork">
+          <node TEXT="Service" ID="8e3b8ba18277df57914ee26e6c299976" STYLE="fork"/>
+        </node>
+        <node TEXT="srv_type" ID="110c330725e3b4cbf776705916dde61f" STYLE="fork">
+          <node TEXT="std_srvs/Trigger" ID="80e33cd14be68183b4075594692d9148" STYLE="fork"/>
+        </node>
+        <node TEXT="demos" ID="a144fe8881c10099bf770570af43f8af" STYLE="fork">
+          <node TEXT="rosservice call /zj_humanoid/manipulate/version &quot;{}&quot;" ID="d0f4462fd57e680ce5518dc9dce8c02d" STYLE="fork"/>
+        </node>
+        <node TEXT="agent" ID="77d930377001ff4c84cac06467c0541f" STYLE="fork">
+          <node TEXT="操作代码的版本号是多少" ID="1989c8405ad10ac128930b3389c46ef4" STYLE="fork">
+            <node TEXT="调用该服务获取版本号" ID="dd7025f6d141c36dfa6e2d8a2c71f8bc" STYLE="fork"/>
+          </node>
+        </node>
+      </node>
     </node>
     <node TEXT="/navigation" ID="77917c125ee51d590960390fd7e90208" STYLE="bubble" POSITION="left">
       <node TEXT="/odom_info" ID="055633893c8638d6b5db6479b858f06d" STYLE="fork">
@@ -2193,7 +2412,7 @@
           <node TEXT="10" ID="e07ab3234e76e9fbd032a8fe38f54e2b" STYLE="fork"/>
         </node>
         <node TEXT="demos" ID="aa657d2d54e731cb97fd8a30d39aa465" STYLE="fork">
-          <node TEXT="rostopic echo /odom_info" ID="42f73907041bd3aebd2dcc99a42e6b24" STYLE="fork"/>
+          <node TEXT="rostopic echo /zj_humanoid/navigation/odom_info" ID="42f73907041bd3aebd2dcc99a42e6b24" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/local_map" ID="f29eb3d90067cb9722a69aa07d4e6bda" STYLE="fork">
@@ -2210,7 +2429,7 @@
           <node TEXT="10" ID="1cd7259f3df6a3635fd3cf47eac9ed71" STYLE="fork"/>
         </node>
         <node TEXT="demos" ID="2f9cc96dc81e5455815398b953a6554f" STYLE="fork">
-          <node TEXT="rostopic echo /odom_info" ID="948da9c0000a643158caea6d270f1b86" STYLE="fork"/>
+          <node TEXT="rostopic echo /zj_humanoid/navigation//odom_info" ID="948da9c0000a643158caea6d270f1b86" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/task_info" ID="45a967dac8d31e5e95759d9f0316c1eb" STYLE="fork">
@@ -2244,7 +2463,7 @@
           <node TEXT="20" ID="f47b7451670b21dac97d811a3578f725" STYLE="fork"/>
         </node>
         <node TEXT="demos" ID="791b267c922179902fb35a998b0aa7ee" STYLE="fork">
-          <node TEXT="rostopic echo /navigation_status" ID="f6fdd049c258dcb040473e5e00483d0b" STYLE="fork"/>
+          <node TEXT="rostopic echo /zj_humanoid/navigation//navigation_status" ID="f6fdd049c258dcb040473e5e00483d0b" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/map" ID="7151b0644a0e6ffdf5b19eb31b7b89fe" STYLE="fork">
@@ -2261,14 +2480,10 @@
           <node TEXT="非实时" ID="9463e74ed4ea7365af93763c1bf18bf1" STYLE="fork"/>
         </node>
         <node TEXT="demos" ID="75e034c95bf09091cfbe1429156b6f94" STYLE="fork">
-          <node TEXT="rostopic echo /map" ID="947aaac260ba00144e397996526e6812" STYLE="fork"/>
+          <node TEXT="rostopic echo /zj_humanoid/navigation//map" ID="947aaac260ba00144e397996526e6812" STYLE="fork"/>
         </node>
       </node>
-      <node TEXT="/point_cloud_360" ID="56c66e29209cafb0a0e979c475ace5ba" STYLE="fork">
-        <node TEXT="description" ID="0952beac0c3fa443edc6c92dfd839107" STYLE="fork">
-          <node TEXT="" ID="f34161dcc9c48900076cfbbe29612656" STYLE="fork"/>
-        </node>
-      </node>
+      <node TEXT="version" ID="1d34335b5ff1d26b7a2300bd052a93fb" STYLE="fork"/>
     </node>
     <node TEXT="/audio" ID="14ae2714a758b73a7b61df99ddb97450" STYLE="bubble" POSITION="left">
       <node TEXT="/microphone" ID="d4fe34be8bf1186a6affd6268af3d894" STYLE="fork">
@@ -2282,7 +2497,7 @@
           <node TEXT="msg_type" ID="5200fd38c48df344a6d5df80cdda1c6b" STYLE="fork">
             <node TEXT="GetDeviceList" ID="5ff9e82d0bee6a851713cee004ea766b" STYLE="fork"/>
           </node>
-          <node TEXT="demo" ID="65e1a2bdb5980eecb797e2ca7ade30c0" STYLE="fork">
+          <node TEXT="demos" ID="65e1a2bdb5980eecb797e2ca7ade30c0" STYLE="fork">
             <node TEXT="" ID="502a810093cac992b97a62b275d91651" STYLE="fork"/>
           </node>
           <node TEXT="agent" ID="3c9e41d122c9d02e8bbba777c062ebb0" STYLE="fork">
@@ -2301,7 +2516,7 @@
           <node TEXT="msg_type" ID="cddad9ca81f6e81a8f6dadbd99127e15" STYLE="fork">
             <node TEXT="SetDevice" ID="979efaef82e6f43cec534271326b1ab3" STYLE="fork"/>
           </node>
-          <node TEXT="demo" ID="11f09204267caa701e6a8a5d2a8960e5" STYLE="fork"/>
+          <node TEXT="demos" ID="11f09204267caa701e6a8a5d2a8960e5" STYLE="fork"/>
           <node TEXT="agent" ID="a25841770d1a7908c7597bd9876bea1a" STYLE="fork">
             <node TEXT="选择第一个麦克风" ID="20c8d189ec338ba711bc973a2a1a8d52" STYLE="fork"/>
           </node>
@@ -2314,6 +2529,7 @@
             <node TEXT="AudioDate" ID="dae70efbf3407fb0dd1935e116cc489c" STYLE="fork"/>
           </node>
           <node TEXT="hz" ID="c0ebb2a729f748c5cba11959d9bde510" STYLE="fork"/>
+          <node TEXT="demos" ID="e95609c2a4eff8064d3fa5752e9617f4" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/speaker" ID="5d79ef19406aeba394b0609e2fb62325" STYLE="fork">
@@ -2324,7 +2540,7 @@
           <node TEXT="type" ID="203bc55f2613b3a8b80fde1fe15898c0" STYLE="fork">
             <node TEXT="Service" ID="4eefe8f8d710035e69a6e0feba91ba10" STYLE="fork"/>
           </node>
-          <node TEXT="demo" ID="1a36b01c388381ca1b90d1d29fca9e81" STYLE="fork">
+          <node TEXT="demos" ID="1a36b01c388381ca1b90d1d29fca9e81" STYLE="fork">
             <node TEXT="" ID="324a668da5ff54c0091b159187e0579e" STYLE="fork"/>
           </node>
           <node TEXT="agent" ID="e746408db5da9a945ac47f1c1d650b5a" STYLE="fork">
@@ -2346,7 +2562,7 @@
           <node TEXT="msg_type" ID="1f8689217cebbc631ca9e0bbe4819ade" STYLE="fork">
             <node TEXT="SetDevice" ID="10c15a4fd5e697db8abcc590bb3b1004" STYLE="fork"/>
           </node>
-          <node TEXT="demo" ID="32cadfa48bc316fdd3040986f46236c8" STYLE="fork"/>
+          <node TEXT="demos" ID="32cadfa48bc316fdd3040986f46236c8" STYLE="fork"/>
           <node TEXT="agent" ID="5ccc052ccce94bc4a6d98ad39536a0e9" STYLE="fork">
             <node TEXT="选择第一个喇叭" ID="1542ab1febc9a8d90ffcd244072b66ef" STYLE="fork"/>
           </node>
@@ -2366,6 +2582,7 @@
               <node TEXT="应回复音量0~100" ID="2447d653381eb8fe5988591ad8a75fa8" STYLE="fork"/>
             </node>
           </node>
+          <node TEXT="demos" ID="e5555ae057d4ad88bb515144b900a2ac" STYLE="fork"/>
         </node>
         <node TEXT="/set_volume" ID="6f51c0de78a49fc4e70111fe9a9be224" STYLE="fork">
           <node TEXT="description" ID="0ed9fa266bfb2544c5a1868b3559a88c" STYLE="fork">
@@ -2382,6 +2599,7 @@
           <node TEXT="msg_type" ID="33eb1df40ea0d780bbad6c352ff1c62a" STYLE="fork">
             <node TEXT="SetVolume" ID="fc2922cfedee7d8c3e1ca200a0037394" STYLE="fork"/>
           </node>
+          <node TEXT="demos" ID="a98e7a33fef6ff7bcdf926d04432c7a0" STYLE="fork"/>
         </node>
       </node>
       <node TEXT="/listen" ID="726fd9004594d90a9ef0e74cc3118d7b" STYLE="fork">
@@ -2397,6 +2615,7 @@
         <node TEXT="agent" ID="9722a235046475617eb2fcff7720143d" STYLE="fork">
           <node TEXT="开始倾听" ID="ad677e040c223f3e10b260f0cf3c3894" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="1ef195adce2f3243e366d09e142f795d" STYLE="fork"/>
       </node>
       <node TEXT="/listen_state" ID="8f1874548faf239245ce12a06f8b632d" STYLE="fork">
         <node TEXT="description" ID="1f641f3104a3568262e6d8a2b24236d3" STYLE="fork">
@@ -2414,6 +2633,7 @@
         <node TEXT="agent" ID="f645bafb87323f54926ae34168eb8abb" STYLE="fork">
           <node TEXT="当前是否为倾听状态" ID="898a5ba46b13a5ffa41a92175b51e116" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="4baa5db1322c322dd5fbe9aaa94a5a14" STYLE="fork"/>
       </node>
       <node TEXT="/asr_text" ID="f44cf36a659c4ec649b29d2d2f257181" STYLE="fork">
         <node TEXT="description" ID="525726d576253ba5481345ed0a705cc4" STYLE="fork">
@@ -2428,6 +2648,7 @@
         <node TEXT="agent" ID="1890a2c6061743841d20ce8a22e8ee9a" STYLE="fork">
           <node TEXT="当前机器人听到了什么" ID="b0b588b99b83da4545dff0c28aa50d08" STYLE="fork"/>
         </node>
+        <node TEXT="demos" ID="8cb0ce71d749edc51cf278aabe05ec8c" STYLE="fork"/>
       </node>
       <node TEXT="/tts_service" ID="dd5ec676f8ea60b7e784a9b7ce5d4439" STYLE="fork">
         <node TEXT="description" ID="0783dfef75790ffe332ee713508fc616" STYLE="fork">
@@ -2442,7 +2663,7 @@
         <node TEXT="agent" ID="ada11c21f355c7ae0925b6ba1f50a07a" STYLE="fork">
           <node TEXT="请让机器人说“hello world”" ID="7ee49ba9dda738eaa223403692ff38c0" STYLE="fork"/>
         </node>
-        <node TEXT="demo" ID="6f67bc2fea188a107e7bbad091e2d8f9" STYLE="fork"/>
+        <node TEXT="demos" ID="6f67bc2fea188a107e7bbad091e2d8f9" STYLE="fork"/>
       </node>
       <node TEXT="/media_play" ID="ff5eb78925a6526fb711a4e9c5b47bba" STYLE="fork">
         <node TEXT="description" ID="39d4fd2619286f899ae83102c4005c07" STYLE="fork">
@@ -2455,7 +2676,7 @@
         <node TEXT="msg_type" ID="e6766082c033a624a206b156daca264f" STYLE="fork">
           <node TEXT="MediaPlay" ID="83c60aea521bb848b491b3aad0a4b6f9" STYLE="fork"/>
         </node>
-        <node TEXT="demo" ID="c156995a8a019b59d740b78e259a4258" STYLE="fork"/>
+        <node TEXT="demos" ID="c156995a8a019b59d740b78e259a4258" STYLE="fork"/>
       </node>
       <node TEXT="/LLM_chat" ID="a026ecb26d1310eaee5839e8c7334a2c" STYLE="fork">
         <node TEXT="description" ID="91d8646af14b9eb5c3b0856e36d51357" STYLE="fork">
@@ -2470,8 +2691,9 @@
         <node TEXT="msg_type" ID="2b71d864510a0a2c037fda135469852e" STYLE="fork">
           <node TEXT="" ID="0927f8bf7f21b76a78e484336465b5af" STYLE="fork"/>
         </node>
-        <node TEXT="demo" ID="5e16cdc1342c6051454a69eb53d9f7e0" STYLE="fork"/>
+        <node TEXT="demos" ID="5e16cdc1342c6051454a69eb53d9f7e0" STYLE="fork"/>
       </node>
+      <node TEXT="version" ID="a57b7010dd4d3104edd464d042ee4844" STYLE="fork"/>
     </node>
   </node>
 </map>

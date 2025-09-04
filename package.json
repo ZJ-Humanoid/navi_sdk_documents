@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "markmap-cli": "^0.15.8",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "vitepress-sidebar": "^1.33.0"
   },
   "dependencies": {
     "markmap-common": "^0.18.9",

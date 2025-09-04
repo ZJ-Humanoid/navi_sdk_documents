@@ -17,6 +17,7 @@ import {
   getNodePath,
   findParentNode
 } from '../utils/markmap-utils.js'
+import yaml from 'js-yaml';
 
 const props = defineProps({
   content: { type: String, required: true },
@@ -28,20 +29,16 @@ const props = defineProps({
 const svgRef = ref()
 let mm = null
 
-// ROS connection reference
 let rosRef = null
 
-// 初始化 ROS 连接
 const initRosConnection = async () => {
   try {
     await rosConnection.connect()
     rosRef = rosConnection.getRosInstance()
     console.log('ROS 连接已初始化')
     
-    // 存储获取到的话题和服务列表
     window.availableTopics = []
     window.availableServices = []
-    // 标志变量，指示是否已经获取到话题和服务列表
     window.rosDataLoaded = false
     
     // 并行获取话题和服务列表
@@ -72,23 +69,17 @@ const initRosConnection = async () => {
       })
     ])
 
-    // 处理结果
     window.availableTopics = (topicsResult.topics || [])
           .filter(topic => topic.startsWith('/zj_humanoid'))
-    console.log('机器人上所有的话题列表:', window.availableTopics)
+    // console.log('机器人上所有的话题列表:', window.availableTopics)
 
 
     window.availableServices = (servicesResult.services || [])
           .filter(service => service.startsWith('/zj_humanoid'))
-    console.log('机器人上所有的服务列表:', window.availableServices)
+    // console.log('机器人上所有的服务列表:', window.availableServices)
 
-    // 设置标志变量为 true，表示已经获取到话题和服务列表
     window.rosDataLoaded = true
-    
-    // 重新渲染 markmap 以应用 ROS 实体
-    if (mm && props.content) {
-      renderMarkmap()
-    }
+
   } catch (error) {
     console.error('ROS 连接初始化失败:', error)
   }
@@ -99,25 +90,27 @@ const applyNodeColors = (root) => {
   const traverse = (node) => {
     // 如果节点有自定义颜色
     if (node.payload?.color) {
+      // console.log(node)
       // 查找对应的 SVG 节点并应用颜色
       const targetNode = mm.svg.selectAll('.markmap-node')
         .filter(function(d) {
-          return d === node; // 直接比较数据对象
+          // console.log(d.payload.lines, node.payload.lines);
+          return d.payload.lines === node.payload.lines; // 直接比较数据对象
         });
+      
       if (!targetNode.empty()) {
-        console.log(targetNode);
+        // console.log(targetNode);
         // 应用背景颜色到圆圈
         targetNode.select('circle')
           .style('fill', node.payload.color);
+
+        // 应用颜色到下划线
+        targetNode.select('line')
+          .style('stroke', node.payload.color);
         
-        // 可选：也可以设置文字颜色
-        // targetNode.select('text')
-        //   .style('fill', node.payload.color);
-        
-        console.log(`✅ 已应用颜色 ${node.payload.color} 到节点: ${node.content}`);
+        // console.log(`✅ 已应用颜色 ${node.payload.color} 到节点: ${node.content}`);
       }
     }
-    
     // 递归处理子节点
     if (node.children) {
       node.children.forEach(traverse);
@@ -188,15 +181,17 @@ const addButtonFunctionality = (root) => {
             })
             // commType是'service'的检查，检查result.services里是否包含toppicName
             const isServiceAvailable = window.availableServices.some(service => service === toppicName)
+            
             if (!isServiceAvailable) {
-              console.warn(`服务 ${toppicName} 在机器人上不可用`)
+              // console.warn(`服务 ${toppicName} 在机器人上不可用`)
               // 将不可用的节点标记为灰色
-              demosNode.payload.color = '#95a5a6'
+              parent.payload.color = '#95a5a6'
             } else {
-              // 为可用的服务类型的 demosNode 设置蓝色
-              demosNode.payload.color = '#3498db'
-              console.log(`发现服务 ${toppicName}`)
+              // 为可用的服务类型的父节点设置蓝色
+              parent.payload.color = '#3498db'
+              // console.log(`发现服务 ${toppicName}`)
             }
+
           } else {
             demosNode.payload = demosNode.payload || {}
             demosNode.payload.rosTopic = new ROSLIB.Topic({
@@ -206,18 +201,19 @@ const addButtonFunctionality = (root) => {
             })
             //是topic的）检查result.topics里是否包含toppicName
             const isTopicAvailable = window.availableTopics.some(topic => topic === toppicName)
+
             if (!isTopicAvailable) {
-              console.warn(`话题 ${toppicName} 在机器人上不可用`)
+              // console.warn(`话题 ${toppicName} 在机器人上不可用`)
               // 将不可用的节点标记为灰色
-              demosNode.payload.color = '#95a5a6'
+              parent.payload.color = '#95a5a6'
             } else {
-              // 为可用的主题类型的 demosNode 设置绿色
-              demosNode.payload.color = '#2ecc71'
-              console.log(`发现话题 ${toppicName}`)
+              // 为可用的主题类型的父节点设置绿色
+              parent.payload.color = '#2ecc71'
+              // console.log(`发现话题 ${toppicName}`)
             }
           }
-          applyNodeColors(demosNode);
-          // console.log(demosNode.payload)
+          demosNode.payload.color = parent.payload.color
+          //console.log(demosNode.payload)
         } catch (e) {
           console.warn('Create ROS entity failed:', e)
         }
@@ -256,18 +252,28 @@ const addButtonClickEvents = (root) => {
         targetNode.style("cursor", "pointer")
         targetNode.on("click", (event) => {
           event.stopPropagation()
-          console.log('🎯 点击事件触发:', node.content)
+          
           
           // 收集子节点文字
           let text = ""
           if (node.children?.length) {
             text = node.children.map(c => c.content).join("\n")
-          } else {
-            text = "(无子节点)"
+          } 
+          console.log('demos 调用:', node.content,"request:",text)
+          // 通过 ROS 发送消息
+          if(parent.payload.rosService){
+            const yamlObject = yaml.load(text);
+            parent.payload.rosService.callService(new ROSLIB.ServiceRequest(yamlObject), (result) => {
+              console.log('服务调用成功:', result)
+            }, (error) => {
+              console.error('服务调用失败:', error)
+            })
+          } else if(parent.payload.rosTopic){
+            parent.payload.rosTopic.publish(new ROSLIB.Message({ data: text }))
           }
         })
         
-        console.log('✅ 已为按键', node.content, '添加样式和点击事件')
+        // console.log('✅ 已为按键', node.content, '添加样式和点击事件')
       } else {
         console.log('❌ 没有找到匹配的节点:', node.content)
       }
@@ -287,12 +293,6 @@ const renderMarkmap = () => {
     const { frontmatter, content } = parseFrontmatter(props.content)
     const { root } = transformer.transform(content)
 
-    // 添加按键功能
-    addButtonFunctionality(root)
-
-    // 裁剪为 2 层：0 层(root) + 1 层(child)
-    setDefaultFold(root, 2)
-
     // 如果已有 markmap 实例，销毁它
     if (mm) mm.destroy()
 
@@ -306,19 +306,23 @@ const renderMarkmap = () => {
     }
 
     const markmapOptions = deriveOptions(jsonOptions)
+    // console.log('markmapOptions', jsonOptions)
 
     mm = Markmap.create(svgRef.value, markmapOptions, root)
-
+    addButtonFunctionality(root)
+    console.log('Markmap rendered:', root)
+    applyNodeColors(root);
     // 初次高度计算
     updateSvgHeight(root, svgRef.value, props.minHeight)
     mm.fit()
-
+    // 添加按键功能
     mm.svg.on('click', () => {
       requestAnimationFrame(() => {
         updateSvgHeight(root, svgRef.value, props.minHeight)
         mm.fit()
         // 添加按键点击事件
         addButtonClickEvents(root)
+        applyNodeColors(root);
       })
     })
 
@@ -340,6 +344,7 @@ onMounted(() => {
   // 异步初始化 ROS 连接，不阻塞页面渲染
   initRosConnection().then(() => {
     console.log('ROS 连接已就绪，可以与 ROS 交互')
+    renderMarkmap()
     // 如果需要在 ROS 连接就绪后重新渲染某些内容，可以在这里调用
   }).catch(error => {
     console.error('ROS 连接初始化失败:', error)

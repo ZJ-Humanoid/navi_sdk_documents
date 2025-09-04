@@ -16,33 +16,9 @@ const defaultConfig = {
     if (typeof window !== 'undefined') {
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       console.log('protocol', protocol);
-
-      // 如果是HTTPS协议，额外发起一个HTTPS请求到IP地址
-      if (protocol === 'wss:') {
-        this.testHttpsConnection();
-      }
-
       return `${protocol}//${ip}${protocol === 'wss:' ? '/wss' : `:${port}`}`;
     }
     return this.url; // 服务器端返回默认URL
-  },
-
-  // 测试HTTPS连接的方法
-  testHttpsConnection: function() {
-    const testUrl = `https://${ip}`;
-    console.log(`Testing HTTPS connection to: ${testUrl}`);
-
-    fetch(testUrl, {
-      method: 'GET',
-      mode: 'no-cors', // 使用no-cors模式避免CORS问题
-      cache: 'no-cache',
-    })
-    .then(response => {
-      console.log('HTTPS connection test successful');
-    })
-    .catch(error => {
-      console.warn('HTTPS connection test failed:', error);
-    });
   }
 };
 
